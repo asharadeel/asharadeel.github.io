@@ -10,6 +10,10 @@ body{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(66, 66, 66, 0.5),rgba(0, 0, 0, 0.2)), url(images/starry.gif); 
 }
 
+#nametag{
+    text-align: center;
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -104,6 +108,8 @@ header p{
     }
 
 }
+
+
 
 
 /* redirect box (to external pages) */
