@@ -1,0 +1,341 @@
+/*blog css*/
+
+/* general page element */
+.blacktext,button{
+    color: black !important;
+}
+
+h2{
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url(images/discussion.gif);
+    background-position: 40%;
+    background-size: 50%;
+}
+h3{
+    background-color: rgba(0,0,0,0);
+    font-size: 2em;
+    margin: 0em;
+    padding: 1.5;
+}
+h4{
+    text-shadow: 0 0 3px black;
+}
+
+
+body{
+    background-image: linear-gradient(rgba(197, 197, 197, 0.6), rgba(255, 255, 255, 0.8)), url(images/img.paper.jpg);
+    background-size: 50%;
+    background-repeat: repeat;
+}
+
+/* greeting and user bar*/
+.lefttoright{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    margin: 1em;
+}
+
+.nametag{
+    padding: 0.5em 0em 0em;
+    font-size: 4em;
+    text-align: left;
+    margin: 0em;
+    color: black;
+    text-shadow : 0 0 3px white;
+    font-weight: bold;
+    align-self: center;
+}
+
+.blogredirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 1em;
+}
+
+.blogredirectbutton{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgb(204, 204, 204);
+    border: 2px solid black;
+    transition: all 0.2s ease-in-out;
+}
+
+.blogredirectbutton button{
+    all: unset;
+    object-fit: cover; 
+    border-radius: inherit; 
+    overflow: hidden; }
+
+.blogredirectbutton img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: inherit; 
+    overflow: hidden; 
+}
+
+.blogredirectbutton:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
+    background: white;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.blogredirectbutton img{
+    width: 4em;
+    height: auto;
+}
+
+.abutton{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 0 0 5px black;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    margin: 1em;
+
+}
+
+.abutton:hover{
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px white;
+}
+
+/* post section for blog */
+.addpostsection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em 0em 1em;
+    background: linear-gradient(rgba(11, 42, 142, 0.8), rgba(41, 57, 176, 0.7)), url(images/flow.gif);
+    background-size: 10%;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+}
+
+.addpostform{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.addpostform div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding : 1em;
+}
+/*form elements*/
+textarea{
+    max-width: 99%;
+    max-height: 20em;
+    min-height: 5em;
+    min-width: 50%;
+}
+textarea,input{
+    outline: none; 
+    padding: 1em;
+    transition: border 0.4s ease-in-out; 
+}
+
+textarea:focus , input:focus{
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    transition: border 0.4s ease-in-out; 
+
+}
+
+button{
+    padding: 1em 2em 1em;
+    margin: 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    color: white !important;
+    text-align: center;
+}
+
+button:hover{
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px black; 
+    transition: all 0.2s ease-in-out;
+    color: black !important;
+}
+
+/* post section for blog */
+
+.post{
+    background: rgb(155, 0, 0);
+    margin: 2em;
+    border-radius: 20px;
+    
+}   
+
+.posttitle{
+    background: rgba(0,0,0,0.2);
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+ 
+}
+
+.styleposttitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.styleposttitle h4{
+    font-size: 2em;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    max-width: 50%;
+}
+
+.postcontent{
+    padding: 1em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 0px 0px 20px 20px;
+}
+
+.postcontenttext {
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    overflow: hidden; 
+    line-height: 1.5em;
+}
+
+.posthistory{
+    background-image: linear-gradient(rgba(127, 6, 6, 0.8),rgba(244, 172, 108, 0.6), rgba(255, 186, 186, 0.8)), url(images/white-paper.gif);
+    background-size: 30%;
+    padding: 1em 0em 1em;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+}
+
+.poststitle{
+    font-size: 3em;
+    border-bottom: 5px solid black;
+    border-radius: 0px;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.nopostalert{
+    background: rgb(115, 0, 0);
+    padding: 1em;
+    font-size: 1.5em;
+    font-style: italic;
+}
+/* post confirmation button and menu */
+
+#overlay, #prevoverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 990; 
+}
+
+#confirmBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgba(71, 0, 0, 0.8), rgba(13, 13, 13, 0.6), rgba(1, 20, 48, 0.9)), url(images/white-paper.gif);
+    background-size: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it appears above the overlay */
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+
+/* Dropdown menu and items*/
+
+.dropdown-container{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.dropdown-item {
+    padding: 10px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    min-width: 150px;
+    max-width: 150px;
+}
+
+
+/* preview box */
+#previewBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the box */
+    background: linear-gradient(rgba(71, 0, 0, 0.8), rgba(13, 13, 13, 0.6), rgba(1, 20, 48, 0.9)), url(images/white-paper.gif);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it appears above the overlay */
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+
+
+@media (max-width: 768px) {
+    
+    .lefttoright{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .posttitle{
+        text-align: center;
+    }
+
+
+}

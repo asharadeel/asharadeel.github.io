@@ -1,0 +1,93 @@
+/*general elements*/
+body{
+    background-image: linear-gradient(rgba(88, 13, 13, 0.5), rgba(189, 189, 189, 0.8)), url(images/img.paper.jpg);
+    
+}
+
+h2{
+    background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/code.gif);
+    background-position: 10%;
+}
+
+h3{
+    font-size: 2em;
+    display: flex;
+    align-items:center;
+    padding:0;
+    margin:0;
+    background-color: rgba(0,0,0,0);
+}
+
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+/* specific elements and sections */
+.textGrid{
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px; 
+    
+    margin: 2em 2em 0em 2em;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    align-items: center;
+}
+
+.imageGrid{
+    margin: 0em 2em 2em 2em;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 10px;
+}
+.imageGrid div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.projectGrid{
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.25em;
+    margin: 2em;
+    border-radius: 25px;
+}
+/* override general */
+.textbox{
+    padding:0;
+    margin:0;
+    background-color: rgba(0,0,0,0);
+}
+
+@media screen and (max-width: 767px) {
+    .imageGrid{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 0.5fr 9fr 0.5fr;
+    }
+
+    .imageGrid button{
+        width: 10%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .textGrid{
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        margin: 2em;
+
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    h3{
+        margin: 0.5em;
+        font-size: 3em;
+        text-align: center;
+    }
+}

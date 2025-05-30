@@ -1,0 +1,36 @@
+/*general elements*/
+body{
+    background-image: linear-gradient(rgba(75, 44, 68, 0.5), rgba(73, 29, 29, 0.8)), url(images/img.paper.jpg);
+}
+
+h2{
+    background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/scifi\ pins.gif);
+}
+
+h3{
+    margin: 0.5em;
+    background-color: rgba(0,0,0,0.2);
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* specific elements and sections */
+.experience{
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr ;
+    grid-template-rows: auto;
+    grid-template-areas: rgba(0,0,0,0);
+    margin: 1em;
+}
+
+.textbox{
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 1em;
+}
+
+@media screen and (max-width: 767px) {
+    .experience{
+        display: flex;
+        flex-direction: column;
+    }
+}

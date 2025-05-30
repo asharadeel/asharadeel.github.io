@@ -1,0 +1,26 @@
+/*general elements*/
+body{
+    background-image: linear-gradient(rgba(95, 99, 46, 0.5), rgba(53, 121, 142, 0.8)), url(images/img.paper.jpg);
+}
+
+h2{
+    background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/education.gif);
+    background-position: 10%;
+}
+
+/* specific elements and sections */
+.education{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 25px;
+    margin: 2em;
+}
+
+
+@media screen and (max-width: 767px) {
+    .education{
+        display: flex;
+        flex-direction: column;
+    }
+}

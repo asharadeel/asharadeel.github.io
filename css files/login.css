@@ -1,0 +1,103 @@
+/*general elements*/
+.blacktext{
+    display: flex;
+    width: 100%;
+    align-items: right;
+}
+body{
+    background-image: linear-gradient(rgba(177, 182, 227, 0.8), rgba(69, 63, 99, 0.565), rgba(86, 116, 153, 0.8)), url(images/img.paper.jpg);
+    background-size: 100%;
+    background-repeat: repeat;
+}
+h3{
+    font-size: 2em;
+    text-align: center;
+    padding: 1em;
+    margin:0;
+    background-color: rgba(0,0,0,0);
+}
+
+
+
+/* button stlying */
+.buttonui{
+    color:black;
+    border: 10%;
+    box-shadow: 0 0 5px black;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5em;
+    margin: 1em;
+}
+
+.buttonui:hover{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+    transition: all 0.2s ease-in-out;
+}
+
+/* specific elements and sections styling*/
+
+.login{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5em;
+    padding: 2em;
+    flex:wrap;
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.75em;
+        text-decoration: none;
+    }   
+    a:hover{
+        color: rgb(166, 166, 244);
+    }
+}
+
+.loginsection{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(images/white-paper.gif); 
+    background-size: 100%;
+    padding: 2em 5em 2em;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+.response {
+    background: rgb(179, 14, 14);
+    padding: 1em;
+    margin: 1em;
+    font-style: italic;
+    text-align: center;
+}
+
+/* media queries for responsiveness */
+@media (max-width: 768px) {
+    .loginsection{
+        padding: 1em;
+        margin: 1em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+
+    .login{
+        margin: 2em;
+        padding: 1em;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+    .buttonui{
+        font-size: 0.75em;
+    }
+}

@@ -1,0 +1,336 @@
+/* -------------- general css - for all pages -------------- */
+
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
+
+/*
+FONTS NAMES AND STYLES
+
+--------
+font1:
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    color: white;
+font2:
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+font3:
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+font4:
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+font5: 
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+font6: 
+    font-family: "Libre Barcode 39 Text", system-ui;
+    font-weight: 400;
+    font-style: normal;
+--------
+*/
+
+
+
+/* general css file for set elements -- HTML elements*/
+html{
+    scroll-behavior:smooth;
+}
+
+*{  
+    font-family: "Plus Jakarta Sans", Arial;
+    color: white;
+}
+
+body{
+    background-color: rgb(55, 55, 55);
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    all: unset;
+    font-size: 3em;
+    text-shadow: 0px 0px 10px black ;
+    font-weight: bold;
+}
+
+h1{
+    font-family: "Bebas Neue", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem !important;
+
+    padding: 1em;
+    margin: 1em;
+
+    text-shadow: 0px 0px 5px black ;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px 0px 20px 0px;
+    border-bottom: 10px solid black;
+    border-top: 1px solid black;
+}
+
+h2{
+    font-family: "Fugaz One", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+
+    padding: 1em;
+    margin: 1em;
+    
+    font-size: 2em;
+
+    text-shadow: 0px 0px 5px black ;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px 0px 20px 0px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+h3{
+    font-family: "Plus Jakarta Sans", Arial !important;
+    text-shadow: 0px 0px 10px black ;
+    font-size: 1.25rem;
+    font-style: strong;
+    padding: 1em;
+    margin:1.5em;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+}
+
+button{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 0 0 5px black;
+    color: white;
+    transition: all 0.2s ease-in-out;
+
+}
+
+button:hover{
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px white;
+}
+
+/* same as above but for a tags */
+.abutton{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 0 0 5px black;
+    color: white;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.abutton:hover{
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px white;
+}
+
+/* specific classes */
+
+.barcodetext{
+    font-family: "Libre Barcode 39 Text", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    padding: 1em;
+}
+
+.blacktext{
+    color: black;
+}
+
+.textbox{
+    padding:1em;
+    margin: 2em;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+/* nav bar */
+nav{ 
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav a{
+    padding: 1em;
+    margin: 0em 0.5em 0em;
+    font-size: 0.75rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    border-radius: 25px;
+}
+
+nav a img{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+nav a:hover{
+    font-weight: strong;
+    background-color: rgba(255, 255, 255, 0.2);
+    img{
+        transform: scale(1.5);
+        transition: all 0.2s ease-in-out;
+    }
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    
+}
+
+/* scroll to top button */
+
+.topbutton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.topbutton img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.topbutton img:hover {
+    transform: scale(1.2);
+}
+
+
+
+
+/* footer elems*/
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border:1px;
+    /*border-top: solid rgb(255, 255, 255);*/
+    background-color: rgba(0, 0, 0,0.5);
+}
+
+footer a{
+    margin: 1em;
+    padding: 0.75em;
+
+    font-style: italic;
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 25px;
+}
+
+
+footer a:hover{
+    font-weight: strong;
+    background-color: rgb(90, 30, 30);
+    img{
+        transform: scale(1.5);
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+.footerlinks{
+    display:flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 767px) {
+    nav, nav div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title{
+        all: unset;
+        font-size: 3em;
+        text-shadow: 0px 0px 10px black ;
+        font-weight: bold;
+    }
+    
+    h1{
+        font-family: "Bebas Neue", sans-serif !important;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 4rem !important;
+    
+        padding: 1em;
+        margin: 1em;
+    
+        text-shadow: 0px 0px 5px black ;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px 0px 20px 0px;
+        border-bottom: 10px solid black;
+        border-top: 1px solid black;
+    }
+    
+    h2{
+        font-family: "Fugaz One", sans-serif !important;
+        font-weight: 400;
+        font-style: normal;
+    
+        padding: 1em;
+        margin: 1em;
+        
+        font-size: 2em;
+    
+        text-shadow: 0px 0px 5px black ;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px 0px 20px 0px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    
+    }
+    
+    h3{
+        font-family: "Plus Jakarta Sans", Arial !important;
+        text-shadow: 0px 0px 10px black ;
+        font-size: 1.25rem;
+        font-style: strong;
+        padding: 1em;
+        margin:1.5em;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+    }
+}
