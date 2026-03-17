@@ -150,6 +150,74 @@ button:hover{
 }
 
 /* specific classes */
+.logo{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;   
+}
+
+menu-toggle{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.1em !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    transition: all 0.2s ease-in-out !important;
+
+}
+
+#menu-toggle, button{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    padding: 1em;
+    box-shadow: 0 0 0px black;
+    color: white;
+    transition: all 0.2s ease-in-out;
+
+}
+
+#menu-toggle:hover{
+    background-color: rgb(0, 0, 0) !important;
+    border-radius: 50% !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.mobileNavBar{
+    display:none;
+}
+
+.desktopNavBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5em 2em 1em 2em;
+    background: linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.418));    background-size: 20em;
+    color: white;
+    a{
+        color: white;
+    }
+    
+}
+
+.desktopNavBar ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.desktopNavBar ul li{
+    padding: 0.5em;
+
+    a{
+        border-radius: 0px !important;
+    }
+}
 
 .barcodetext{
     font-family: "Libre Barcode 39 Text", system-ui;
@@ -181,6 +249,7 @@ nav{
 }
 
 nav a{
+    transition: all 0.3s ease-in-out;
     padding: 1em;
     margin: 0em 0.5em 0em;
     font-size: 0.75rem;
@@ -199,11 +268,11 @@ nav a img{
 }
 
 nav a:hover{
+    transition: all 0.3s ease-in-out;
     font-weight: strong;
     background-color: rgba(255, 255, 255, 0.2);
     img{
         transform: scale(1.5);
-        transition: all 0.2s ease-in-out;
     }
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     
@@ -277,10 +346,54 @@ footer a:hover{
 
 
 @media screen and (max-width: 767px) {
-    nav, nav div{
-        display: flex;
+    .desktopNavBar{
+        display: none;
+    }
+    .mobileNavBar{
+        transition: all 0.3s ease-in-out;
+        display: block;
         flex-direction: column;
-        text-align: center;
+        padding: 0.5em 2em !important;
+        align-items: center;
+        background: linear-gradient(rgb(167, 0, 0), rgb(0, 0, 0));    background-size: 20em;        color: white;
+        a{
+            padding: 0em;
+            color: white;
+        }
+
+    }
+
+    .mobileNavBar ul{
+        list-style-type: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 0em;
+        width: 100%;
+    }
+
+
+    .mobileNavBar ul li{
+        padding: 0.5em;
+
+        a{
+            border-radius: 0px !important;
+        }
+    }
+
+    .mobileNavBar .nav-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links.active{
+        max-height: 15em;
     }
 
     .title{

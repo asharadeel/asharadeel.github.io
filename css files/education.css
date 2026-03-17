@@ -15,8 +15,12 @@ h2{
     background-color: rgba(0,0,0,0.2);
     border-radius: 25px;
     margin: 2em;
+
 }
 
+.space{
+    padding-top: 8em;
+}
 
 @media screen and (max-width: 767px) {
     .education{

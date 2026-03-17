@@ -12,10 +12,16 @@ h3{
     background-color: rgba(0,0,0,0.2);
     font-size: 1.5em;
     text-align: center;
+    border-radius: 10px !important;
 }
 
 /* specific elements and sections */
 .experience{
+    display: flex;
+    flex-direction: column;
+}
+
+.experiencebox{
     display: grid;
     grid-template-columns: 2.5fr 2.5fr ;
     grid-template-rows: auto;
@@ -23,13 +29,20 @@ h3{
     margin: 1em;
 }
 
+.exptitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .textbox{
     background-color: rgba(255, 255, 255, 0.1);
     margin: 1em;
+    border-radius: 5px !important;
 }
 
 @media screen and (max-width: 767px) {
-    .experience{
+    .experiencebox{
         display: flex;
         flex-direction: column;
     }
