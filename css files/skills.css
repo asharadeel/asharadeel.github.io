@@ -6,7 +6,7 @@ p{
     padding: 1em;
 }
 
-h2{
+h1{
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8)), url("images/skills.gif");
     background-position: 50% 50%;
     background-size: 60%;
@@ -104,6 +104,24 @@ h3{
     border-radius: 50px;
 }
 
+.additionalGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1em;
+    padding: 1em;
+    text-decoration: none;
+    list-style-type: none;
+    h5{
+        padding: 1em;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+    .cell{
+        border-radius: 10px;
+        
+    }
+}
+
 @media screen and (max-width: 767px) {
     .programGrid, .workGrid{
         display: flex;
@@ -144,5 +162,25 @@ h3{
         width: 30%;
         height: auto;
         padding: 1em;
+    }
+
+    .additionalGrid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h5{
+            padding: 1em;
+            margin: 0;
+        }
+        ul{
+            padding: 0;
+            margin: 1;
+        }
+        .cell{
+            width: 100%;
+            margin: 0em;
+            padding: 1em;
+        }
     }
 }

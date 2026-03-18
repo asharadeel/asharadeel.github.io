@@ -1,10 +1,9 @@
 /*general elements*/
 body{
     background-image: linear-gradient(rgba(88, 13, 13, 0.5), rgba(189, 189, 189, 0.8)), url(images/img.paper.jpg);
-    
 }
 
-h2{
+h1{
     background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/code.gif);
     background-position: 10%;
 }
@@ -21,7 +20,7 @@ h3{
 img{
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 /* specific elements and sections */
 .textGrid{
@@ -41,7 +40,7 @@ img{
     padding: 1em;
 
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
 .imageGrid div{
@@ -62,12 +61,67 @@ img{
     background-color: rgba(0,0,0,0);
 }
 
-@media screen and (max-width: 767px) {
-    .imageGrid{
-        display: grid;
+.textCallout{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+    margin: 1em;
+    margin-bottom: 1em;
+
+}
+
+.projNavBox{
+    background-color: rgba(0,0,0,0.2);
+    margin: 0em;
+    border-radius: 10px;
+    a{
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 1em;
+        border-radius: 10px;
+        flex: 1;
+    }
+    .projNavList{
+        padding: 1em;
+        font-size: 1.25em;
+        display: flex;
+        justify-content: space-evenly;
         align-items: center;
-        justify-content: center;
-        grid-template-columns: 0.5fr 9fr 0.5fr;
+        text-align: center;
+        gap: 0.5em;
+        
+    }
+    a:hover{
+        text-shadow: 0 0 5px white;
+        transition: all 0.2s ease-in-out;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.projNav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em;
+    margin: 1em;
+    h3{
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 10px;
+        padding: 1em;
+        margin: 0em;
+    }
+}
+@media screen and (max-width: 767px) {
+    img{
+        border-radius: 5px;
+    }
+
+    .imageGrid{
+        display: flex;
+        flex-direction: column;
+        padding: 0em;
     }
 
     .imageGrid button{
@@ -76,18 +130,22 @@ img{
         justify-content: center;
         display: flex;
     }
-    .textGrid{
+    .textGrid, .textCallout{
         display: flex;
         flex-direction: column;
         padding: 1em;
-        margin: 2em;
+        margin: 1em;
 
         background-color: rgba(0, 0, 0, 0);
     }
 
     h3{
         margin: 0.5em;
-        font-size: 3em;
+        font-size: 2em;
         text-align: center;
+    }
+    
+    .projNav{
+        display:none;
     }
 }
