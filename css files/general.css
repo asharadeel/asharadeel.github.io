@@ -61,9 +61,10 @@ body{
 
 .title{
     all: unset;
-    font-size: 3em;
+    font-size: 8em !important;
     text-shadow: 0px 0px 10px black ;
     font-weight: bold;
+    padding: 0em !important;
 }
 
 h1{
@@ -401,8 +402,9 @@ footer a:hover{
     }
 
     .title{
+        text-align: center;
         all: unset;
-        font-size: 3em;
+        font-size: 5em;
         text-shadow: 0px 0px 10px black ;
         font-weight: bold;
     }

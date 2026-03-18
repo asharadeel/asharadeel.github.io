@@ -9,8 +9,8 @@ body{
     display: flex;
     flex-direction: column;
     padding: 1em;
-    padding-top: 15em;
-    padding-bottom: 15em;
+    padding-top: 12em;
+    padding-bottom: 1em;
     align-items: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(66, 66, 66, 0.5),rgba(0, 0, 0, 0.2)), url(images/starry.gif); 
 }
@@ -209,8 +209,8 @@ header p{
 @media screen and (max-width: 767px) {
     .titlesection{
         padding: 1em;
-        padding-top: 50%;
-        padding-bottom: 50%;
+        padding-top: 40%;
+        padding-bottom: 40%;
     }
 
     header{
