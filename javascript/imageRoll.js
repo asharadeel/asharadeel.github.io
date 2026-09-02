@@ -14,8 +14,10 @@ console.log(lunanext);
 console.log(lunaprevious);
 console.log(lunaimage);
 //listeners
-lunanext.addEventListener('click',lunanextImage);
-lunaprevious.addEventListener('click',lunapreviousImage);
+if(lunanext && lunaprevious){
+    lunanext.addEventListener('click',lunanextImage);
+    lunaprevious.addEventListener('click',lunapreviousImage);
+}
 
 function lunanextImage(){
     lunapos++;
@@ -50,8 +52,10 @@ console.log(hpnext);
 console.log(hpprevious);
 console.log(hpimage);
 //listeners
-hpnext.addEventListener('click',hpnextImage);
-hpprevious.addEventListener('click',hppreviousImage);
+if(hpnext && hpprevious){
+    hpnext.addEventListener('click',hpnextImage);
+    hpprevious.addEventListener('click',hppreviousImage);
+}
 
 function hpnextImage(){
     hppos++;

@@ -1,30 +1,91 @@
-/*general elements*/
-body{
-    background-image: linear-gradient(rgba(95, 99, 46, 0.5), rgba(53, 121, 142, 0.8)), url(images/img.paper.jpg);
+/* -------------- education -------------- */
+
+body > header{
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.9)), url(images/education.gif);
 }
 
-h1{
-    background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/education.gif);
-    background-position: 10%;
-}
-
-/* specific elements and sections */
 .education{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.educationbox{
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
-    background-color: rgba(0,0,0,0.2);
-    border-radius: 25px;
-    margin: 2em;
-
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
 }
 
-.space{
-    padding-top: 8em;
+.educationbox:last-child{ border-bottom: 1px solid var(--line); }
+
+.edutitle{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
-@media screen and (max-width: 767px) {
-    .education{
-        display: flex;
-        flex-direction: column;
+.education h3{
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.edutitle .textbox p{
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: left;
+}
+
+.edutitle .textbox i{ font-style: normal; }
+
+.edutitle .textbox b{
+    color: var(--text);
+    font-weight: 600;
+}
+
+.edudesc{
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.education ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.education li{
+    list-style: none;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.55;
+}
+
+.education li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.6;
+}
+
+.space{ display: none; }
+
+@media screen and (max-width: 767px){
+    .education{ padding: 1.75rem 1.5rem 3rem; }
+
+    .educationbox{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.75rem 0;
     }
 }

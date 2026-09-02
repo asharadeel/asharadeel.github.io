@@ -1,186 +1,173 @@
-/* general elements */
-body{
-    background-image: linear-gradient(rgba(44, 75, 63, 0.5), rgba(29, 65, 73, 0.8)), url(images/img.paper.jpg);
-}
-p{
-    padding: 1em;
-}
+/* -------------- skills -------------- */
 
-h1{
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8)), url("images/skills.gif");
-    background-position: 50% 50%;
-    background-size: 60%;
-}
-
-h3{
-    background-color: rgba(0,0,0,0);
-    font-size: 2em;
-    margin: 0 0 0 0;
-}
-
-/* specific elements and sections */
-.workGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin: 2em;
-    gap: 0.5em;
-    text-align: center;
-    
-}
-
-.programGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin: 2em;
-    gap: 0.5em;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-}
-
-.cell{
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    margin: 0em 1em 0em;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-}
-
-.subcell{
-    background-color: rgba(134, 27, 17, 0.5);
-    margin: 0em 2em 0em;
-    font-style: italic;
-    border-radius: 50px;
-    align-items: center;
-    justify-content: top;
+body > header{
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.9)), url(images/skills.gif);
 }
 
 .skills{
-    margin: 1em;
-    display:flex;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 1em;
+    gap: 1.25rem;
 }
 
-.grid{
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 20px;
-    margin: 1em 0em 1em;
-    display: grid;
-    grid-template-columns: 1fr 3fr 8fr;
-    align-items: center;
-    justify-content: left;
-    img{
-        width: 80%;
-        height: auto;
-        align-items: center;
-        justify-content: center;
-        padding: 1em;
-        border-radius: 25%;
-    }
+/* one card per skill area */
+.skillCard{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
 }
+
+.skillHead{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.skillHead .images{ flex: none; }
+
+.skillHead img{
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+}
+
+.skillCard h3{
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+.skillCard h3 strong{ font-weight: 400; }
 
 .pjustify{
-    text-align: justify;
-
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
 }
 
 .gridhead{
+    color: var(--muted);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 1.75rem 0 0.9rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+/* even tiles — one row, equal columns */
+.programGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+.workGrid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+.programGrid > div{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cell{
+    display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    padding: 1em;
-    text-shadow: 0 0 5px black;    
+    justify-content: center;
+    text-align: center;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    background: transparent;
+    min-width: 0;
 }
 
-.skills{
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 50px;
+.workGrid .cell{
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    min-height: 46px;
 }
 
+.subcell{
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--muted);
+    padding: 0.4rem 0.5rem;
+    border-top: 1px solid var(--line);
+    background: color-mix(in srgb, var(--text) 4%, transparent);
+}
+
+/* tool columns */
 .additionalGrid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 1em;
-    padding: 1em;
-    text-decoration: none;
-    list-style-type: none;
-    h5{
-        padding: 1em;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-    }
-    .cell{
-        border-radius: 10px;
-        
-    }
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem 1rem;
+    padding: 0;
 }
 
-@media screen and (max-width: 767px) {
+.skillList h5{
+    margin: 0 0 0.7rem;
+    font-size: 0.88rem;
+    color: var(--text);
+}
+
+.skillList ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.skillList li{
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+@media screen and (max-width: 1023px){
+    .programGrid{ grid-template-columns: repeat(4, 1fr); }
+    .workGrid{ grid-template-columns: repeat(3, 1fr); }
+    .additionalGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media screen and (max-width: 767px){
+    .skills{ padding: 2rem 1.5rem 3rem; }
+
+    .skillCard{ padding: 1.5rem 1.25rem; }
+
+    .skillHead img{ width: 44px; height: 44px; border-radius: 12px; }
+
+    .skillCard h3{ font-size: 1.7rem; }
+
     .programGrid, .workGrid{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-            
-    }
-
-    .cell, .programGrid div, .workGrid div{
-        display: flex;
-        flex-direction: column;
-        flex:1;
-        align-items: center;   
-        width: 100%;
-        justify-content: center;
-    }
-    .skills{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .gridhead{
-        width: 80%;
-    }
-
-    .grid{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .grid img{
-        width: 30%;
-        height: auto;
-        padding: 1em;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
     }
 
     .additionalGrid{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        h5{
-            padding: 1em;
-            margin: 0;
-        }
-        ul{
-            padding: 0;
-            margin: 1;
-        }
-        .cell{
-            width: 100%;
-            margin: 0em;
-            padding: 1em;
-        }
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 0.9rem;
     }
 }

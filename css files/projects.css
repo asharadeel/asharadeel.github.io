@@ -1,151 +1,156 @@
-/*general elements*/
-body{
-    background-image: linear-gradient(rgba(88, 13, 13, 0.5), rgba(189, 189, 189, 0.8)), url(images/img.paper.jpg);
+/* -------------- projects -------------- */
+
+body > header{
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.9)), url(images/code.gif);
 }
 
-h1{
-    background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.8)), url(images/code.gif);
-    background-position: 10%;
-}
-
-h3{
-    font-size: 2em;
-    display: flex;
-    align-items:center;
-    padding:0;
-    margin:0;
-    background-color: rgba(0,0,0,0);
-}
-
-img{
+body > h2{
+    max-width: var(--maxw);
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 0.5rem;
+    font-family: var(--font);
+    font-size: 0.78rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
 }
-/* specific elements and sections */
-.textGrid{
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 10px; 
-    
-    margin: 2em 2em 0em 2em;
-    padding: 1em;
 
+/* quick nav */
+.projNav{
+    max-width: var(--maxw);
+    margin: 2.5rem auto 0;
+    padding: 0 1.5rem;
     display: grid;
-    grid-template-columns: 3fr 5fr;
-    align-items: center;
-}
-
-.imageGrid{
-    margin: 0em 2em 2em 2em;
-    padding: 1em;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
-.imageGrid div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.projectGrid{
-    background-color: rgba(0,0,0,0.2);
-    padding: 0.25em;
-    margin: 2em;
-    border-radius: 25px;
-}
-/* override general */
-.textbox{
-    padding:0;
-    margin:0;
-    background-color: rgba(0,0,0,0);
-}
-
-.textCallout{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 2em;
-    margin: 1em;
-    margin-bottom: 1em;
-
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 .projNavBox{
-    background-color: rgba(0,0,0,0.2);
-    margin: 0em;
-    border-radius: 10px;
-    a{
-        transition: all 0.2s ease-in-out;
-        text-decoration: none;
-        background: rgba(0, 0, 0, 0.25);
-        padding: 1em;
-        border-radius: 10px;
-        flex: 1;
-    }
-    .projNavList{
-        padding: 1em;
-        font-size: 1.25em;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        text-align: center;
-        gap: 0.5em;
-        
-    }
-    a:hover{
-        text-shadow: 0 0 5px white;
-        transition: all 0.2s ease-in-out;
-        background: rgba(0, 0, 0, 0.5);
-    }
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
 }
 
-.projNav{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-    padding: 1em;
-    margin: 1em;
-    h3{
-        background-color: rgba(0,0,0,0.1);
-        border-radius: 10px;
-        padding: 1em;
-        margin: 0em;
-    }
+.projNavHeader h3{
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
 }
-@media screen and (max-width: 767px) {
-    img{
-        border-radius: 5px;
+
+.projNavList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.projNavList a{
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.projNavList a:hover{
+    text-decoration: none;
+    border-color: var(--muted);
+}
+
+/* project cards */
+.projectGrid, .proProjGrid{
+    max-width: var(--maxw);
+    margin: 1rem auto;
+    padding: 0 1.5rem;
+}
+
+.textGrid, .textCallout{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.textGrid h3, .textCallout h3{
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.textGrid .textbox, .textCallout .textbox{
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.textGrid .textbox i{ font-style: normal; }
+
+.textGrid .textbox i:first-child{
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+/* tech-stack line */
+.textGrid .textbox i b{
+    display: inline-block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.88rem;
+    margin-bottom: 0.6rem;
+}
+
+.textGrid .textbox b{
+    color: var(--text);
+    font-weight: 500;
+}
+
+
+.textGrid .textbox a{ display: inline-block; margin-top: 0.75rem; }
+
+/* screenshots */
+.imageGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+}
+
+.imageGrid div{ display: flex; }
+
+.imageGrid img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+
+@media screen and (max-width: 767px){
+    body > h2{ padding: 2.5rem 1.5rem 0.5rem; }
+
+    .projNav{ display: none; }
+
+    .projectGrid, .proProjGrid{ padding: 0 1.5rem; }
+
+    .textGrid, .textCallout{
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1.75rem 0;
     }
 
     .imageGrid{
-        display: flex;
-        flex-direction: column;
-        padding: 0em;
-    }
-
-    .imageGrid button{
-        width: 10%;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-    }
-    .textGrid, .textCallout{
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        margin: 1em;
-
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    h3{
-        margin: 0.5em;
-        font-size: 2em;
-        text-align: center;
-    }
-    
-    .projNav{
-        display:none;
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
     }
 }
