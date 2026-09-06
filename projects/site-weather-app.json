@@ -1,0 +1,19 @@
+{
+    "title": "SiteWeather Construction Weather App",
+    "category": "professional",
+    "date": "March 2026 - April 2026",
+    "tech": "HTML, Tailwind CSS, Node.js, React.js, Figma, OpenWeather API, Geolocation API",
+    "summary": "A website displaying weather data and forecast with the target audience of outdoor construction workers.",
+    "description": "A weather app designed for outdoor construction workers to provide real-time weather data and forecasts. Provides detailed statistics from OpenWeather API as well as geolocation data to provide accurate weather information for the user's current location. Contains safety guides and tips for outdoor construction workers to ensure their safety in various weather conditions.",
+    "images": [
+        "media/weatherapp1.png",
+        "media/weatherapp2.png",
+        "media/weatherapp3.png",
+        "media/weatherapp4.png",
+        "media/weatherapp5.png"
+    ],
+    "links": [
+        { "label": "Click here to view", "url": "https://site-weather-app.vercel.app/" },
+        { "label": "View pdf report", "url": "files/SWCD-report.pdf" }
+    ]
+}

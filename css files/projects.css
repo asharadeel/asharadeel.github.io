@@ -58,7 +58,7 @@ img{
 /* one button per json in the projects folder */
 .projButtons{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1em;
     padding: 1em;
     margin: 1em 2em 2em 2em;
@@ -127,7 +127,7 @@ img{
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    padding: 2em;
+    padding: 3em;
 }
 
 .cardTop{
