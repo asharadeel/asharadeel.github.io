@@ -1,0 +1,14 @@
+{
+    "title": "Hot Pursuit 2",
+    "category": "games",
+    "date": "Sept. 2023 - Feb. 2024",
+    "tech": "C#, Unity, Blender, Adobe CC, FL Studio",
+    "summary": "A 3D car simulation game with 4 game modes.",
+    "description": "Hot Pursuit is a 3D car simulation game designed in Unity and programmed in C#. This game consists of 4 different game mode for the user to play and experience.",
+    "images": [
+        "media/hp2.png",
+        "media/hp1.png",
+        "media/hp3.png"
+    ],
+    "links": []
+}

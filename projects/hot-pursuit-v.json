@@ -1,0 +1,14 @@
+{
+    "title": "Hot Pursuit V",
+    "category": "games",
+    "date": "Feb. 2026 - Present",
+    "tech": "Unity, Blender, Paint.net, Spacedesk, Adobe CC, VSCode, C#, DevOps",
+    "summary": "Online multiplayer sequel to Hot Pursuit, in development.",
+    "description": "Under development. An upgraded version of the original Hot Pursuit game with more features, better graphics. This game is desigend to be playable online with multiplayer mode and more enhanced quality gameplay comapred to previous project, with additional gamemodes, cars, and maps.",
+    "images": [
+        "media/hpv2.png",
+        "media/hpv1.png",
+        "media/hpv3.png"
+    ],
+    "links": []
+}

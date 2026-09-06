@@ -22,43 +22,26 @@ img{
     height: auto;
     border-radius: 10px;
 }
-/* specific elements and sections */
-.textGrid{
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 10px; 
-    
-    margin: 2em 2em 0em 2em;
-    padding: 1em;
 
-    display: grid;
-    grid-template-columns: 3fr 5fr;
-    align-items: center;
-}
-
-.imageGrid{
-    margin: 0em 2em 2em 2em;
-    padding: 1em;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
-.imageGrid div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.projectGrid{
-    background-color: rgba(0,0,0,0.2);
-    padding: 0.25em;
-    margin: 2em;
-    border-radius: 25px;
-}
 /* override general */
 .textbox{
     padding:0;
     margin:0;
     background-color: rgba(0,0,0,0);
+}
+
+.projIntro{
+    padding: 1em 2em 0em 2em;
+    font-style: italic;
+    text-align: center;
+}
+
+/* specific elements and sections */
+.projectGrid{
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.25em;
+    margin: 2em;
+    border-radius: 25px;
 }
 
 .textCallout{
@@ -68,69 +51,146 @@ img{
     padding: 2em;
     margin: 1em;
     margin-bottom: 1em;
-
 }
 
-.projNavBox{
-    background-color: rgba(0,0,0,0.2);
-    margin: 0em;
-    border-radius: 10px;
-    a{
-        transition: all 0.2s ease-in-out;
-        text-decoration: none;
-        background: rgba(0, 0, 0, 0.25);
-        padding: 1em;
-        border-radius: 10px;
-        flex: 1;
-    }
-    .projNavList{
-        padding: 1em;
-        font-size: 1.25em;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        text-align: center;
-        gap: 0.5em;
-        
-    }
-    a:hover{
-        text-shadow: 0 0 5px white;
-        transition: all 0.2s ease-in-out;
-        background: rgba(0, 0, 0, 0.5);
-    }
-}
 
-.projNav{
+/* -------------- project buttons -------------- */
+/* one button per json in the projects folder */
+.projButtons{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
     padding: 1em;
-    margin: 1em;
-    h3{
-        background-color: rgba(0,0,0,0.1);
-        border-radius: 10px;
-        padding: 1em;
-        margin: 0em;
-    }
+    margin: 1em 2em 2em 2em;
 }
+
+.projButton{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    padding: 1.5em;
+    border-radius: 10px;
+    text-align: left;
+    cursor: pointer;
+
+    background-color: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.projButton:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    text-shadow: 0 0 5px white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    transform: translateY(-3px);
+    transition: all 0.2s ease-in-out;
+}
+
+.projButtonTitle{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.projButtonDate{
+    font-size: 0.85em;
+    font-style: italic;
+    opacity: 0.75;
+}
+
+.projButtonSummary{
+    font-size: 0.95em;
+    line-height: 1.4em;
+}
+
+
+/* -------------- the project card -------------- */
+#projectCard{
+    width: min(55em, 90%);
+    max-height: 85vh;
+    overflow-y: auto;
+
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 0 30px black;
+
+    background-color: rgb(55, 55, 55);
+    background-image: linear-gradient(rgba(88, 13, 13, 0.6), rgba(0, 0, 0, 0.85));
+}
+
+#projectCard::backdrop{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cardInner{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 2em;
+}
+
+.cardTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+#cardClose{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 0.75em 1.25em;
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#cardClose:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px white;
+    transition: all 0.2s ease-in-out;
+}
+
+/* image roll inside the card */
+.cardImageRoll{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1em;
+}
+
+.cardImageRoll button{
+    font-size: 2em;
+    padding: 0.25em 0.6em;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.cardImageRoll button:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px white;
+    transition: all 0.2s ease-in-out;
+}
+
+.cardLinks{
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+
 @media screen and (max-width: 767px) {
     img{
         border-radius: 5px;
     }
 
-    .imageGrid{
-        display: flex;
-        flex-direction: column;
-        padding: 0em;
-    }
-
-    .imageGrid button{
-        width: 10%;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-    }
-    .textGrid, .textCallout{
+    .textCallout{
         display: flex;
         flex-direction: column;
         padding: 1em;
@@ -144,8 +204,28 @@ img{
         font-size: 2em;
         text-align: center;
     }
-    
-    .projNav{
-        display:none;
+
+    /* one button per row on a phone */
+    .projButtons{
+        grid-template-columns: 1fr;
+        margin: 1em;
+    }
+
+    #projectCard{
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .cardInner{
+        padding: 1.5em;
+    }
+
+    .cardTop{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cardClose{
+        text-align: center;
     }
 }
