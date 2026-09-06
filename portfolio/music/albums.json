@@ -1,0 +1,318 @@
+{
+    "albums": [
+        {
+            "name": "Loli",
+            "cover": "images/music/loli.jpg",
+            "tracks": [
+                {
+                    "title": "Blood",
+                    "preview": "music/previews/loli/01-blood.mp3"
+                },
+                {
+                    "title": "Hate To Love U Extended",
+                    "preview": "music/previews/loli/02-hate-to-love-u-extended.mp3"
+                },
+                {
+                    "title": "Hate To Love U",
+                    "preview": "music/previews/loli/03-hate-to-love-u.mp3"
+                },
+                {
+                    "title": "Missing V2",
+                    "preview": "music/previews/loli/04-missing-v2.mp3"
+                },
+                {
+                    "title": "Missing",
+                    "preview": "music/previews/loli/05-missing.mp3"
+                }
+            ]
+        },
+        {
+            "name": "BO22",
+            "cover": "images/music/bo22.jpg",
+            "tracks": [
+                {
+                    "title": "Track1",
+                    "preview": "music/previews/bo22/01-track1.mp3"
+                },
+                {
+                    "title": "Track10",
+                    "preview": "music/previews/bo22/02-track10.mp3"
+                },
+                {
+                    "title": "Track11",
+                    "preview": "music/previews/bo22/03-track11.mp3"
+                },
+                {
+                    "title": "Track12",
+                    "preview": "music/previews/bo22/04-track12.mp3"
+                },
+                {
+                    "title": "Track13",
+                    "preview": "music/previews/bo22/05-track13.mp3"
+                },
+                {
+                    "title": "Track14",
+                    "preview": "music/previews/bo22/06-track14.mp3"
+                },
+                {
+                    "title": "Track15",
+                    "preview": "music/previews/bo22/07-track15.mp3"
+                },
+                {
+                    "title": "Track16",
+                    "preview": "music/previews/bo22/08-track16.mp3"
+                },
+                {
+                    "title": "Track2",
+                    "preview": "music/previews/bo22/09-track2.wav"
+                },
+                {
+                    "title": "Track3",
+                    "preview": "music/previews/bo22/10-track3.mp3"
+                },
+                {
+                    "title": "Track4",
+                    "preview": "music/previews/bo22/11-track4.mp3"
+                },
+                {
+                    "title": "Track5",
+                    "preview": "music/previews/bo22/12-track5.mp3"
+                },
+                {
+                    "title": "Track6",
+                    "preview": "music/previews/bo22/13-track6.mp3"
+                },
+                {
+                    "title": "Track7",
+                    "preview": "music/previews/bo22/14-track7.mp3"
+                },
+                {
+                    "title": "Track8",
+                    "preview": "music/previews/bo22/15-track8.wav"
+                },
+                {
+                    "title": "Track9",
+                    "preview": "music/previews/bo22/16-track9.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Quid Pro Quo",
+            "cover": "images/music/quid-pro-quo.jpg",
+            "tracks": [
+                {
+                    "title": "Blues",
+                    "preview": "music/previews/quid-pro-quo/01-blues.mp3"
+                },
+                {
+                    "title": "Crimson",
+                    "preview": "music/previews/quid-pro-quo/02-crimson.mp3"
+                },
+                {
+                    "title": "Dawn - Single",
+                    "preview": "music/previews/quid-pro-quo/03-dawn-single.wav"
+                },
+                {
+                    "title": "Dawn",
+                    "preview": "music/previews/quid-pro-quo/04-dawn.mp3"
+                },
+                {
+                    "title": "Intro",
+                    "preview": "music/previews/quid-pro-quo/05-intro.mp3"
+                },
+                {
+                    "title": "Jovial",
+                    "preview": "music/previews/quid-pro-quo/06-jovial.mp3"
+                },
+                {
+                    "title": "Love Interlude",
+                    "preview": "music/previews/quid-pro-quo/07-love-interlude.mp3"
+                },
+                {
+                    "title": "Love",
+                    "preview": "music/previews/quid-pro-quo/08-love.mp3"
+                },
+                {
+                    "title": "Me Amore",
+                    "preview": "music/previews/quid-pro-quo/09-me-amore.wav"
+                },
+                {
+                    "title": "Outro",
+                    "preview": "music/previews/quid-pro-quo/10-outro.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Quid Pro Quo II",
+            "cover": "images/music/quid-pro-quo-ii.jpg",
+            "tracks": [
+                {
+                    "title": "B 2",
+                    "preview": "music/previews/quid-pro-quo-ii/01-b-2.mp3"
+                },
+                {
+                    "title": "Crimson",
+                    "preview": "music/previews/quid-pro-quo-ii/02-crimson.mp3"
+                },
+                {
+                    "title": "D 2",
+                    "preview": "music/previews/quid-pro-quo-ii/03-d-2.wav"
+                },
+                {
+                    "title": "J 2",
+                    "preview": "music/previews/quid-pro-quo-ii/04-j-2.mp3"
+                },
+                {
+                    "title": "Love",
+                    "preview": "music/previews/quid-pro-quo-ii/05-love.mp3"
+                },
+                {
+                    "title": "Intro",
+                    "preview": "music/previews/quid-pro-quo-ii/06-intro.mp3"
+                },
+                {
+                    "title": "Love Interlude",
+                    "preview": "music/previews/quid-pro-quo-ii/07-love-interlude.mp3"
+                },
+                {
+                    "title": "Outro",
+                    "preview": "music/previews/quid-pro-quo-ii/08-outro.mp3"
+                }
+            ]
+        },
+        {
+            "name": "87",
+            "cover": "images/music/87.jpg",
+            "tracks": [
+                {
+                    "title": "87",
+                    "preview": "music/previews/87/01-87.mp3"
+                },
+                {
+                    "title": "Intro",
+                    "preview": "music/previews/87/02-intro.mp3"
+                },
+                {
+                    "title": "Outro",
+                    "preview": "music/previews/87/03-outro.mp3"
+                }
+            ]
+        },
+        {
+            "name": "87 Deluxe",
+            "cover": "images/music/87-deluxe.jpg",
+            "tracks": [
+                {
+                    "title": "87 - Deluxe",
+                    "preview": "music/previews/87-deluxe/01-87-deluxe.mp3"
+                },
+                {
+                    "title": "87 - Intro - Deluxe",
+                    "preview": "music/previews/87-deluxe/02-87-intro-deluxe.mp3"
+                },
+                {
+                    "title": "87 - Outro - Deluxe",
+                    "preview": "music/previews/87-deluxe/03-87-outro-deluxe.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Levitate",
+            "cover": "images/music/levitate.jpg",
+            "tracks": [
+                {
+                    "title": "Levitate",
+                    "preview": "music/previews/levitate/01-levitate.wav"
+                },
+                {
+                    "title": "Untitled 54 4",
+                    "preview": "music/previews/levitate/02-untitled-54-4.mp3"
+                },
+                {
+                    "title": "Untitled 56 2",
+                    "preview": "music/previews/levitate/03-untitled-56-2.mp3"
+                },
+                {
+                    "title": "Untitled 57 5",
+                    "preview": "music/previews/levitate/04-untitled-57-5.mp3"
+                },
+                {
+                    "title": "Untitled 60 2",
+                    "preview": "music/previews/levitate/05-untitled-60-2.mp3"
+                },
+                {
+                    "title": "Untitled 61 2",
+                    "preview": "music/previews/levitate/06-untitled-61-2.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Levitate Full",
+            "cover": "images/music/levitate-full.jpg",
+            "tracks": [
+                {
+                    "title": "Untitled 54 4",
+                    "preview": "music/previews/levitate-full/01-untitled-54-4.mp3"
+                },
+                {
+                    "title": "Untitled 56 2",
+                    "preview": "music/previews/levitate-full/02-untitled-56-2.mp3"
+                },
+                {
+                    "title": "Untitled 57 6",
+                    "preview": "music/previews/levitate-full/03-untitled-57-6.mp3"
+                },
+                {
+                    "title": "Untitled 60 3",
+                    "preview": "music/previews/levitate-full/04-untitled-60-3.mp3"
+                },
+                {
+                    "title": "Untitled 61 2",
+                    "preview": "music/previews/levitate-full/05-untitled-61-2.mp3"
+                },
+                {
+                    "title": "Untitled 63 3",
+                    "preview": "music/previews/levitate-full/06-untitled-63-3.mp3"
+                },
+                {
+                    "title": "Untitled 64 3",
+                    "preview": "music/previews/levitate-full/07-untitled-64-3.mp3"
+                },
+                {
+                    "title": "Untitled 66",
+                    "preview": "music/previews/levitate-full/08-untitled-66.mp3"
+                },
+                {
+                    "title": "Untitled 67",
+                    "preview": "music/previews/levitate-full/09-untitled-67.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Question Mark",
+            "cover": "images/music/question-mark.jpg",
+            "tracks": [
+                {
+                    "title": "Eclipse",
+                    "preview": "music/previews/question-mark/01-eclipse.mp3"
+                },
+                {
+                    "title": "Exp (+1)",
+                    "preview": "music/previews/question-mark/02-exp-1.mp3"
+                },
+                {
+                    "title": "Hatched",
+                    "preview": "music/previews/question-mark/03-hatched.mp3"
+                },
+                {
+                    "title": "Leud",
+                    "preview": "music/previews/question-mark/04-leud.mp3"
+                },
+                {
+                    "title": "Outro",
+                    "preview": "music/previews/question-mark/05-outro.mp3"
+                }
+            ]
+        }
+    ]
+}

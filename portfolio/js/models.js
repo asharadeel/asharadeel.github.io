@@ -349,6 +349,22 @@ function openFolder(folder) {
     folderGrid.innerHTML = "";
     folderGrid.scrollTop = 0;
 
+    //one on its own goes full width, an even number goes two across,
+    //anything else goes three so there is never a lonely one at the end
+    let columns = 3;
+
+    if (folder.images.length === 1) {
+        columns = 1;
+    }
+    else if (folder.images.length % 2 === 0) {
+        columns = 2;
+    }
+
+    folderGrid.style.setProperty("--cols", columns);
+
+    //a set that fits on one row is stretched to fill the height
+    folderGrid.classList.toggle("folderViewGrid--single", folder.images.length <= columns);
+
     for (let i = 0; i < folder.images.length; i++) {
         folderGrid.appendChild(makeShot({ image: folder.images[i] }, 'shot shot--folder'));
     }

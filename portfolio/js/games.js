@@ -34,7 +34,7 @@ async function loadGames() {
     }
     catch (error) {
         console.log(error);
-        gamesGrid.innerHTML = "<p class='gamesError'>Could not load the games. If you opened this page by double clicking the file, run it through a local server instead.</p>";
+        gamesGrid.innerHTML += "<p class='gamesError'>Could not load the games. If you opened this page by double clicking the file, run it through a local server instead.</p>";
     }
 }
 

@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/portfolio.css" type="text/css">
     <script src="js/portfolio.js" defer></script>
+    <script src="js/music.js" defer></script>
 </head>
 <body>
 
@@ -20,38 +21,32 @@
     <main class="page">
 
         <header class="page__head">
-            <h1 class="page__title reveal">Music</h1>
+            <h1 class="page__title reveal is-in">Music</h1>
         </header>
 
         <div class="page__body">
 
-            <div class="highlights__head reveal">
+            <div class="highlights__head reveal is-in">
                 <h2 class="section__label">Highlights</h2>
                 <button class="viewMore" type="button">View More</button>
             </div>
 
-            <section class="workGrid">
-                <article class="work reveal" style="--i:0">
-                    <span class="work__tag">Track</span>
-                    <div>
-                        <h3 class="work__title">Untitled 01</h3>
-                        <p class="work__text">Placeholder &mdash; track name, release date and a line on the production.</p>
+            <!-- the two albums are made by js/music.js from music/albums.json -->
+            <section class="workGrid" id="musicGrid">
+
+                <article class="work statement reveal is-in">
+                    <span class="statement__ghost">FL</span>
+                    <span class="work__tag">Written &amp; Produced</span>
+                    <div class="statement__body">
+                        <p class="statement__text">
+                            Nine albums written, produced and mixed in <em>FL Studio</em> &mdash;
+                            everything from the first idea to the master is <em>mine</em>. Every
+                            track here plays a <em>thirty second</em> preview.
+                        </p>
                     </div>
+                    <span class="statement__meta">FL Studio &middot; Mixing &middot; Mastering</span>
                 </article>
-                <article class="work reveal" style="--i:1">
-                    <span class="work__tag">Game Score</span>
-                    <div>
-                        <h3 class="work__title">Untitled 02</h3>
-                        <p class="work__text">Placeholder &mdash; original score and loops written for one of my games.</p>
-                    </div>
-                </article>
-                <article class="work reveal" style="--i:2">
-                    <span class="work__tag">Sound Design</span>
-                    <div>
-                        <h3 class="work__title">Untitled 03</h3>
-                        <p class="work__text">Placeholder &mdash; foley, UI sounds and one-shots built from scratch.</p>
-                    </div>
-                </article>
+
             </section>
 
         </div>

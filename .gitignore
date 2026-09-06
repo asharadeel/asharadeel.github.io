@@ -1,0 +1,15 @@
+# 3D source renders
+# the originals are 4000-6000px pngs, around 400mb in total, and no page
+# ever asks for them. the site only loads the resized copies in
+# "portfolio/images/3d modelling/web", which are committed as normal.
+# delete these three lines if you want the originals in the repo as well.
+portfolio/images/3d modelling/*.png
+portfolio/images/3d modelling/*/*.png
+portfolio/images/3d modelling/*/*.meta
+
+# source music
+# the album folders are about 1.5gb of full length tracks. the site only
+# ever serves the 30 second previews in portfolio/music/previews, which are
+# committed as normal. everything else here stays local.
+portfolio/music/*/
+!portfolio/music/previews/
