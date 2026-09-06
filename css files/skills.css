@@ -122,6 +122,34 @@ h3{
     }
 }
 
+/* programming boxes - the name and the years read as one box instead of
+   two stacked on each other, and the padding is pulled in so they are not
+   so tall */
+.programGrid > div{
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 0.6em 0.4em;
+}
+
+.programGrid .cell{
+    margin: 0em;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0em;
+}
+
+.programGrid .cell p{
+    padding: 0.1em;
+}
+
+/* the years are a small tag that hugs the text */
+.programGrid .cell.subcell{
+    display: inline-block;
+    margin: 0.35em 0em 0em;
+    padding: 0.15em 0.9em;
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
 @media screen and (max-width: 767px) {
     .programGrid, .workGrid{
         display: flex;
