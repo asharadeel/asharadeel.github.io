@@ -47,13 +47,22 @@
 
         function enter() {
             setCaption(el.dataset.label || restLabel, el.dataset.eyebrow || restEyebrow);
-            /* the scrim stays up while a tile is hovered; the circle handles its own via CSS */
-            if (core && isTile) { core.classList.add("is-active"); }
+
+            if (!core) { return; }
+
+            /* a tile brings up the scrim, the icon itself brings up the ring
+               of text and the orbit that are otherwise hidden */
+            core.classList.toggle("is-active", isTile);
+            core.classList.toggle("is-over", !isTile);
         }
 
         function leave() {
             setCaption(restLabel, restEyebrow);
-            if (core && isTile) { core.classList.remove("is-active"); }
+
+            if (!core) { return; }
+
+            core.classList.remove("is-active");
+            core.classList.remove("is-over");
         }
 
         el.addEventListener("pointerenter", enter);
