@@ -10,5 +10,7 @@
         "media/tt1.png",
         "media/tt3.png"
     ],
-    "links": []
+    "links": [
+        { "label": "Click here to view", "url": "https://asharss.itch.io/twisted-torpor-2d" }
+    ]
 }

@@ -184,6 +184,17 @@ img{
     flex-wrap: wrap;
 }
 
+.cardLinks a{
+    cursor: pointer;
+}
+
+/* links with "download": true in the json get a little arrow */
+.downloadLink::before{
+    content: "\2193";
+    padding-right: 0.5em;
+    font-weight: bold;
+}
+
 
 @media screen and (max-width: 767px) {
     img{

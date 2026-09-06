@@ -7,6 +7,7 @@
     "description": "An website displaying automatically generated music into a sorted structure with cleaner and more professional display. Made in collaboration with a client.",
     "images": [],
     "links": [
-        { "label": "View on GitHub", "url": "https://github.com/asharadeel/SoundScape" }
+        { "label": "View on GitHub", "url": "https://github.com/asharadeel/SoundScape" },
+        { "label": "Download PDF", "url": "files/hello-from-ashar.pdf", "download": true }
     ]
 }

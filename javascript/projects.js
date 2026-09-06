@@ -100,7 +100,7 @@ function openCard(project) {
     cardDescription.innerHTML = project.description;
 
     //images - only show the image roll if the project has images
-    cardsources = project.images;
+    cardsources = project.images || new Array();
     cardpos = 0;
 
     if (cardsources.length > 0) {
@@ -122,14 +122,27 @@ function openCard(project) {
         cardPrevious.style.visibility = 'hidden';
     }
 
-    //links
+    //links - each one is either a normal link or a file to download (pdf, zip, anything)
+    //the label is whatever you want it to say, eg "Press to view" or "Download PDF"
     cardLinks.innerHTML = "";
-    for (let i = 0; i < project.links.length; i++) {
+    let links = project.links || new Array();
+
+    for (let i = 0; i < links.length; i++) {
         let link = document.createElement('a');
         link.className = 'abutton';
-        link.href = project.links[i].url;
-        link.target = '_blank';
-        link.textContent = project.links[i].label;
+        link.href = links[i].url;
+        link.textContent = links[i].label;
+
+        if (links[i].download === true) {
+            //saves the file instead of opening it
+            link.download = "";
+            link.classList.add('downloadLink');
+        }
+        else {
+            link.target = '_blank';
+            link.rel = 'noopener';
+        }
+
         cardLinks.appendChild(link);
     }
 
