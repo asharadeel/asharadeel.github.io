@@ -1,0 +1,16 @@
+{
+    "title": "Twisted Torpor",
+    "category": "games",
+    "date": "Aug. 2025 - Present",
+    "tech": "Unity, Blender, Paint.net, Spacedesk, Adobe CC, VSCode, C#, DevOps",
+    "summary": "A 2D and 3D ARG horror game, in development.",
+    "description": "Under development. A blend of 3D and 3D ARG horror game designed in Unity and programmed in C#. The player solves small series of puzzles to defeat his foe \"Torpor\" who exhausts him with mental deterioration and physical exhaustion. The game is desigend as a story with alternating 2D and 3D levels to alter consciousness.",
+    "images": [
+        "media/tt2.png",
+        "media/tt1.png",
+        "media/tt3.png"
+    ],
+    "links": [
+        { "label": "Click here to view", "url": "https://asharss.itch.io/twisted-torpor-2d" }
+    ]
+}

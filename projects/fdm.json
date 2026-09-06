@@ -1,0 +1,19 @@
+{
+    "title": "WorkGate - Employee Portal Application",
+    "category": "professional",
+    "date": "March 2026 - May 2026",
+    "tech": "HTML, Tailwind CSS, Node.js, React.js, Springboot, MySQL",
+    "summary": "An employee portal application for FDM to manage employee information and streamline workflows.",
+    "description": "An employee portal application designed for FDM employees to access their information, submit requests, and manage their tasks. Built with a modern UI using React.js and integrated with Springboot backend and MySQL database.",
+    "images": [
+        "media/fdm1.png",
+        "media/fdm2.png",
+        "media/fdm3.png",
+        "media/fdm4.png",
+        "media/fdm5.png"
+    ],
+    "links": [
+        { "label": "Click here to view", "url": "https://github.com/asharadeel/WorkGate" },
+        { "label": "View pdf report", "url": "files/FDM-report.pdf" }
+    ]
+}

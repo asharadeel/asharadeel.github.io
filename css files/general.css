@@ -446,3 +446,215 @@ footer a:hover{
         border-radius: 25px;
     }
 }
+
+/* -------------- image viewer -------------- */
+/* the big picture that opens when any picture on the page is clicked */
+/* it is built by javascript/imageViewer.js */
+/* pinned to the four corners of the screen instead of being sized by a
+   percentage - a dialog comes with its own width, margin and max width,
+   and those are what make it hang off the side */
+#imageViewer{
+    position: fixed;
+    inset: 0;
+    margin: 0;
+
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+
+    animation: viewerFade 0.2s ease-in-out;
+}
+
+#imageViewer::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes viewerFade{
+    from{
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* everything in here counts its padding inside its own size, so nothing
+   can ever end up wider or taller than the screen */
+#imageViewer *, #imageViewer{
+    box-sizing: border-box;
+}
+
+.viewerInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    width: 100%;
+    height: 100%;
+
+    /* the padding is what keeps the picture off the edges and out from
+       under the x in the corner - the picture only gets what is left */
+    padding: 5em 4em;
+}
+
+/* the frame takes whatever room is left over, so the close button and the
+   x always stay on screen. when the picture is zoomed in you scroll it
+   around inside here */
+.viewerFrame{
+    display: flex;
+
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+
+    /* nothing scrolls until the picture is actually zoomed in, so a
+       rounded off half a pixel cannot put a scroll bar on the page */
+    overflow: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.viewerFrame.zoomed{
+    overflow: auto;
+    /* a finger can drag the picture around and pinch to zoom in further */
+    touch-action: pan-x pan-y pinch-zoom;
+}
+
+#viewerImage{
+    /* auto margins centre it without cutting off the top when it is zoomed */
+    margin: auto;
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+
+    border-radius: 15px;
+    box-shadow: 0 0 30px black;
+    cursor: zoom-in;
+    transition: none;
+}
+
+/* one tap or click makes it big - then it can be dragged around */
+#viewerImage.zoomed{
+    max-width: none;
+    max-height: none;
+    width: 200%;
+    flex-shrink: 0;
+    cursor: zoom-out;
+}
+
+/* the x in the corner - desktop only */
+#viewerCross{
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+
+    /* a square with even padding, so the cross sits dead centre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    padding: 0.7em;
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* the cross is dark, so it is flipped white to sit on the dark button
+   and flipped back when the button turns white on hover */
+#viewerCross img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    filter: invert(1);
+    transition: all 0.2s ease-in-out;
+}
+
+#viewerCross:hover{
+    background-color: white;
+    box-shadow: 0 0 10px white;
+    transition: all 0.2s ease-in-out;
+}
+
+#viewerCross:hover img{
+    filter: invert(0);
+}
+
+/* the button under the picture - phones only */
+#viewerClose{
+    display: none;
+    flex-shrink: 0;
+
+    padding: 0.75em 2em;
+    border-radius: 20px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+}
+
+/* every picture that can be opened gets a pointer over it */
+main img, section img, article img, dialog img{
+    cursor: zoom-in;
+}
+
+nav img, footer img, a img, button img{
+    cursor: auto;
+}
+
+/* stops the page behind scrolling, sideways as well as up and down,
+   while the picture is open */
+html.viewerOpen, body.viewerOpen{
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 767px) {
+    /* dvh keeps the browser bar from pushing the button off the bottom */
+    #imageViewer{
+        height: 100dvh;
+    }
+
+    .viewerInner{
+        gap: 0.75em;
+        padding: 0.75em;
+    }
+
+    #viewerImage{
+        border-radius: 10px;
+    }
+
+    /* a bit less zoom on a small screen, so it stays easy to drag around */
+    #viewerImage.zoomed{
+        width: 175%;
+    }
+
+    /* on a phone the x is swapped for a button under the picture */
+    #viewerCross{
+        display: none;
+    }
+
+    #viewerClose{
+        display: block;
+        width: 100%;
+        max-width: 20em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "title": "Luna",
+    "category": "games",
+    "date": "Aug. 2024 - Aug. 2024",
+    "tech": "C++, Adobe CC, Paint.net, Unreal Engine",
+    "summary": "Revision and time management software with a clean aesthetic.",
+    "description": "Luna is a revision and time management software for users to track and assess their time and productivity over long periods and review their habits of work. It also includes several aesthetically pleasing elements.",
+    "images": [
+        "media/luna3.png",
+        "media/luna1.png",
+        "media/luna2.png"
+    ],
+    "links": []
+}

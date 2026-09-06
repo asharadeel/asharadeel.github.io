@@ -1,0 +1,12 @@
+{
+    "title": "HorseRacer23",
+    "category": "professional",
+    "date": "Apr. 2025 - May 2025",
+    "tech": "Java, IntelliJ IDEA, Java Swing, XChart",
+    "summary": "A horse racing simulation game with live stats and logging.",
+    "description": "A horse racing simulation game designed in Java and programmed in Java Swing. The game simulates multiple horses in tracks of variable length racing in multiple weather conditions with several varying factors effecting their performance. This application allows them to view result of race and analyse several statistics. It also contains an active log.",
+    "images": [],
+    "links": [
+        { "label": "View on GitHub", "url": "https://github.com/asharadeel/HorseRacer23" }
+    ]
+}
