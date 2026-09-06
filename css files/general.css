@@ -658,3 +658,79 @@ html.viewerOpen, body.viewerOpen{
         text-align: center;
     }
 }
+
+/* -------------- portfolio popup -------------- */
+/* the box that opens when the portfolio link in the nav bar is clicked */
+/* it is built by javascript/general.js */
+#portfolioPopup{
+    margin: auto;
+    width: min(30em, calc(100vw - 2em));
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    background-color: rgb(45, 45, 45);
+    box-shadow: 0 0 30px black;
+    animation: popupFade 0.2s ease-in-out;
+}
+
+#portfolioPopup::backdrop{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+@keyframes popupFade{
+    from{
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popupInner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5em;
+    padding: 2em;
+}
+
+/* the heading and text are stripped back - the box is already a panel */
+#portfolioPopup h3{
+    font-family: "Bebas Neue", sans-serif !important;
+    font-size: 2.5em;
+    letter-spacing: 0.05em;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+}
+
+#portfolioPopup p{
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1em;
+}
+
+.popupButtons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+/* the a tag needs the padding a button gets for free */
+#popupContinue,
+#popupCancel{
+    padding: 1em 2em;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#popupContinue:hover,
+#popupCancel:hover{
+    border-radius: 50px;
+}
