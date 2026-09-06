@@ -188,6 +188,52 @@ a { color: inherit; text-decoration: none; }
 .tile:focus-visible .tile__go { opacity: 1; transform: none; }
 .tile:hover .tile__go span { width: 56px; }
 
+/* ---------- a tile with a cover picture behind it ---------- */
+
+.tile__cover {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+    filter: grayscale(.45);
+    transition: transform 1s var(--ease), filter .7s var(--ease);
+}
+
+/* the semi transparent layer that keeps the words readable */
+.tile__cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .68);
+    transition: background-color .6s var(--ease);
+}
+
+.tile--cover:hover .tile__cover,
+.tile--cover:focus-visible .tile__cover {
+    transform: scale(1.07);
+    filter: grayscale(0);
+}
+
+/* hovering lifts the overlay instead of sweeping white over it */
+.tile--cover:hover .tile__cover::after,
+.tile--cover:focus-visible .tile__cover::after { background: rgba(0, 0, 0, .42); }
+
+.tile--cover::before { display: none; }
+
+/* so the words stay white rather than flipping to black */
+.tile--cover:hover .tile__title,
+.tile--cover:focus-visible .tile__title { color: #fff; }
+
+.tile--cover:hover .tile__sub,
+.tile--cover:hover .tile__go,
+.tile--cover:focus-visible .tile__sub,
+.tile--cover:focus-visible .tile__go { color: rgba(255, 255, 255, .82); }
+
+.tile--cover .tile__ghost { color: rgba(255, 255, 255, .07); }
+.tile--cover:hover .tile__ghost { color: rgba(255, 255, 255, .11); }
+
 /* ghost numeral pinned to the outer corner of each quadrant */
 .tile__ghost {
     position: absolute;
@@ -596,7 +642,7 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
    ========================================================= */
 
 .gameCard {
-    justify-content: flex-end;         /* the title sits at the bottom */
+    justify-content: space-between;    /* year at the top, title at the bottom */
     padding: clamp(18px, 2.2vw, 30px);
     background: #060606;
 }
@@ -622,10 +668,12 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
     position: absolute;
     inset: 0;
     z-index: 1;
+    /* dark at the bottom for the title, and again at the top for the year */
     background: linear-gradient(to top,
                 rgba(0, 0, 0, .92) 0%,
-                rgba(0, 0, 0, .55) 42%,
-                rgba(0, 0, 0, .12) 100%);
+                rgba(0, 0, 0, .5) 34%,
+                rgba(0, 0, 0, .22) 64%,
+                rgba(0, 0, 0, .62) 100%);
 }
 
 .gameCard__body {
@@ -637,6 +685,8 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
 }
 
 .gameCard__year {
+    position: relative;
+    z-index: 2;
     font-family: var(--display);
     font-weight: 300;
     font-size: clamp(10px, 1.05vmin, 12px);
@@ -754,6 +804,374 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
 }
 
 /* =========================================================
+   3D GALLERY — built by js/models.js
+   the page stays fixed, only the gallery itself scrolls
+   ========================================================= */
+
+.page__lede {
+    position: relative;
+    margin-top: clamp(12px, 2vh, 20px);
+    max-width: 68ch;
+    font-size: clamp(11px, 1.25vmin, 14px);
+    line-height: 1.75;
+    color: #a8a8a8;
+}
+
+.section__note {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(9px, 1vmin, 11px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.gallery {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 14px);
+    padding: clamp(16px, 2.6vh, 30px) clamp(30px, 5vw, 96px) clamp(30px, 5vh, 60px);
+}
+
+.gallery::-webkit-scrollbar { width: 10px; }
+.gallery::-webkit-scrollbar-track { background: transparent; }
+.gallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .16);
+    border-radius: 50px;
+}
+
+/* a row is however many pictures it was given */
+.galleryRow {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: clamp(8px, 1vw, 14px);
+}
+
+/* a highlight box can be a button, so it needs the browser styling off */
+button.work,
+button.gameCard {
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* ---------- the gallery, opened by view more ---------- */
+
+#galleryView {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #000;
+    overflow: hidden;
+    animation: listIn .35s var(--ease);
+}
+
+#galleryView::backdrop { background: #000; }
+
+.galleryViewInner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ---------- one picture ---------- */
+
+.shot {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: #080808;
+    overflow: hidden;
+    cursor: zoom-in;
+    aspect-ratio: 16 / 9;
+}
+
+.shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(.25) brightness(.9);
+    transform: scale(1.01);
+    transition: transform .9s var(--ease), filter .6s var(--ease);
+}
+
+.shot:hover img,
+.shot:focus-visible img {
+    transform: scale(1.06);
+    filter: none;
+}
+
+/* the one massive picture at the top */
+.shot--hero {
+    aspect-ratio: 2 / 1;
+    max-height: 58vh;
+}
+
+.shot__label {
+    position: absolute;
+    left: clamp(14px, 1.6vw, 26px);
+    bottom: clamp(12px, 1.4vw, 22px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    font-family: var(--display);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: clamp(12px, 1.5vmin, 19px);
+    letter-spacing: .08em;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .95);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+
+.shot:hover .shot__label,
+.shot:focus-visible .shot__label { opacity: 1; transform: none; }
+
+/* the big one keeps its caption showing */
+.shot--hero .shot__label { opacity: 1; transform: none; }
+
+.shot__label small {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: clamp(10px, 1.1vmin, 12px);
+    letter-spacing: .04em;
+    text-transform: none;
+    color: rgba(255, 255, 255, .72);
+}
+
+.galleryHeading {
+    margin-top: clamp(10px, 1.6vh, 20px);
+    padding-top: clamp(12px, 2vh, 20px);
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(10px, 1.1vmin, 12px);
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .8);
+}
+
+/* ---------- the car folders ---------- */
+
+.folderRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 15vw, 220px), 1fr));
+    gap: clamp(8px, 1vw, 14px);
+    padding-bottom: clamp(20px, 3vh, 34px);
+}
+
+.folder {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: #080808;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition: outline-color .4s var(--ease);
+}
+
+.folder:hover,
+.folder:focus-visible { outline-color: rgba(255, 255, 255, .4); }
+
+.folder img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(.4) brightness(.5);
+    transform: scale(1.02);
+    transition: transform .9s var(--ease), filter .6s var(--ease);
+}
+
+.folder:hover img,
+.folder:focus-visible img {
+    transform: scale(1.08);
+    filter: grayscale(0) brightness(.66);
+}
+
+.folder__body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: clamp(12px, 1.2vw, 20px);
+    text-align: left;
+    background: linear-gradient(to top, rgba(0, 0, 0, .92), rgba(0, 0, 0, 0));
+}
+
+.folder__name {
+    font-family: var(--display);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: clamp(13px, 1.5vmin, 19px);
+    line-height: 1.05;
+    letter-spacing: .04em;
+    color: #fff;
+}
+
+.folder__meta {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(9px, .95vmin, 11px);
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .6);
+}
+
+/* ---------- a folder opened ---------- */
+
+#folderView {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #000;
+    overflow: hidden;
+    animation: listIn .35s var(--ease);
+}
+
+#folderView::backdrop { background: #000; }
+
+.folderViewInner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.folderViewTop {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(30px, 6vh, 60px) clamp(30px, 5vw, 96px) clamp(18px, 2.6vh, 28px);
+    border-bottom: 1px solid var(--line);
+}
+
+.folderViewTitle {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(26px, 5vmin, 62px);
+    line-height: .94;
+    color: #fff;
+}
+
+.folderViewYear {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* two wide, as asked - the rows carry on if there are more than four */
+.folderViewGrid {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(8px, 1vw, 14px);
+    padding: clamp(18px, 3vh, 34px) clamp(30px, 5vw, 96px) clamp(34px, 6vh, 70px);
+    align-content: start;
+}
+
+.folderViewGrid::-webkit-scrollbar { width: 10px; }
+.folderViewGrid::-webkit-scrollbar-track { background: transparent; }
+.folderViewGrid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .16);
+    border-radius: 50px;
+}
+
+/* ---------- one picture, full size ---------- */
+
+#shotViewer {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: clamp(40px, 7vh, 80px) clamp(30px, 5vw, 90px);
+    border: none;
+    background: rgba(0, 0, 0, .96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: listIn .3s var(--ease);
+}
+
+#shotViewer::backdrop { background: rgba(0, 0, 0, .96); }
+
+#shotViewerImage {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.shotViewerClose {
+    position: absolute;
+    top: clamp(20px, 3vh, 34px);
+    right: clamp(22px, 3vw, 40px);
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .9);
+    background: transparent;
+    padding: 11px 24px;
+    border: 1px solid var(--line);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color .4s var(--ease), color .4s var(--ease),
+                border-color .4s var(--ease);
+}
+
+.shotViewerClose:hover { background: #fff; border-color: #fff; color: #000; }
+
+/* =========================================================
    ALL GAMES — the full record, a page of its own
    ========================================================= */
 
@@ -781,6 +1199,7 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
 }
 
 .gamesListInner {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -841,29 +1260,54 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
     letter-spacing: .34em;
 }
 
-/* the grid is the only thing that scrolls */
-.gamesListGrid {
+/* the record pans sideways - one strip of panels, edge to edge */
+.gamesListStrip {
     flex: 1;
     min-height: 0;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(clamp(230px, 22vw, 330px), 1fr));
-    gap: clamp(12px, 1.6vw, 24px);
-    padding: clamp(22px, 4vh, 44px) clamp(30px, 5vw, 96px) clamp(40px, 7vh, 80px);
-    align-content: start;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
 }
 
-/* in the full record every card is a picture of the same shape */
-.gamesListGrid .gameCard {
-    aspect-ratio: 16 / 9;
+/* each panel fills the height and sits flush against the next one */
+.gamesListStrip .gameCard {
+    flex: 0 0 auto;
+    width: clamp(250px, 25vw, 400px);
+    height: 100%;
     min-height: 0;
+    aspect-ratio: auto;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 0;
+    scroll-snap-align: start;
 }
 
-.gamesListGrid::-webkit-scrollbar { width: 10px; }
-.gamesListGrid::-webkit-scrollbar-track { background: transparent; }
-.gamesListGrid::-webkit-scrollbar-thumb {
+/* nothing lifts, or the panels would come apart */
+.gamesListStrip .gameCard:hover { transform: none; }
+
+.gamesListStrip::-webkit-scrollbar { height: 10px; }
+.gamesListStrip::-webkit-scrollbar-track { background: transparent; }
+.gamesListStrip::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, .16);
     border-radius: 50px;
+}
+
+/* the edge fades so it reads as carrying on past the screen */
+.gamesListInner::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: clamp(40px, 6vw, 90px);
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, .85));
 }
 
 /* =========================================================
@@ -1009,10 +1453,10 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
         text-align: left;
     }
 
-    /* stacked, the sweep becomes a card behind each section */
+    /* full width and square cornered on a phone */
     .tile::before {
-        inset: 8px;
-        border-radius: 20px;
+        inset: 0;
+        border-radius: 0;
     }
 
     /* a hairline between the sections, drawn inside the padding */
@@ -1093,11 +1537,15 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
         gap: 12px;
     }
 
-    .work {
+    .work,
+    .gameCard,
+    .statement {
         min-height: clamp(150px, 38vw, 200px);
         padding: clamp(20px, 5.5vw, 30px);
-        border-radius: 18px;
+        border-radius: 0;
     }
+
+    .gamesListStrip .gameCard { min-height: 0; }
 
     .work__title { font-size: clamp(20px, 6vw, 26px); }
     .work__text { font-size: 12px; }
@@ -1109,6 +1557,31 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
         padding: clamp(20px, 6vw, 30px) clamp(22px, 6vw, 40px);
     }
 
+    /* ---------- 3d gallery ---------- */
+
+    /* one under the other on a phone, whatever the row was meant to be */
+    .galleryRow { grid-template-columns: 1fr; }
+
+    .shot--hero { aspect-ratio: 16 / 10; max-height: none; }
+
+    /* there is no hover on a phone, so the labels just stay on */
+    .shot__label { opacity: 1; transform: none; }
+
+    .folderRow { grid-template-columns: 1fr 1fr; }
+
+    .folderViewTop {
+        align-items: flex-start;
+        padding: clamp(28px, 8vw, 44px) clamp(22px, 6vw, 40px) clamp(16px, 4vw, 24px);
+    }
+
+    .folderViewTitle { font-size: clamp(24px, 9vw, 40px); }
+
+    .folderViewGrid {
+        padding: clamp(16px, 5vw, 26px) clamp(22px, 6vw, 40px) clamp(34px, 9vw, 54px);
+    }
+
+    #shotViewer { padding: clamp(56px, 14vw, 80px) clamp(16px, 5vw, 30px); }
+
     /* ---------- all games ---------- */
 
     .gamesListTop {
@@ -1118,14 +1591,46 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
 
     .gamesListTitle { font-size: clamp(28px, 10vw, 46px); }
 
-    .gamesListGrid {
-        grid-template-columns: 1fr;
-        padding: clamp(20px, 6vw, 32px) clamp(22px, 6vw, 40px) clamp(34px, 9vw, 54px);
+    /* on a phone the same strip runs down the page instead of across */
+    .gamesListStrip {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y proximity;
+        overscroll-behavior-y: contain;
+    }
+
+    /* full width, stacked flush against each other */
+    .gamesListStrip .gameCard {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        border-radius: 0;
+        scroll-snap-align: start;
+    }
+
+    /* the fade belongs at the bottom when it runs downwards */
+    .gamesListInner::after {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: clamp(40px, 12vw, 80px);
+        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .85));
     }
 
     /* ---------- return popup ---------- */
 
-    #returnPopup { width: calc(100vw - 2.5em); }
+    #returnPopup {
+        width: calc(100vw - 2.5em);
+        border-radius: 0;
+    }
     .returnButtons { width: 100%; }
     .returnBtn { flex: 1 1 auto; }
 }

@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/portfolio.css" type="text/css">
     <script src="js/portfolio.js" defer></script>
+    <script src="js/models.js" defer></script>
 </head>
 <body>
 
@@ -30,28 +31,22 @@
                 <button class="viewMore" type="button">View More</button>
             </div>
 
-            <section class="workGrid">
-                <article class="work reveal" style="--i:0">
-                    <span class="work__tag">Hard Surface</span>
-                    <div>
-                        <h3 class="work__title">Untitled 01</h3>
-                        <p class="work__text">Placeholder &mdash; the model, the software and what the brief was.</p>
+            <!-- the two boxes are made by js/models.js from models/gallery.json -->
+            <section class="workGrid" id="modelsGrid">
+
+                <article class="work statement reveal is-in">
+                    <span class="statement__ghost">2020</span>
+                    <span class="work__tag">Since 2020</span>
+                    <div class="statement__body">
+                        <p class="statement__text">
+                            I have been modelling in <em>Blender</em> since <em>2020</em>. It is the
+                            only tool I use for any of this &mdash; every render here was built,
+                            lit and shot in it, and I <em>animate</em> in it too.
+                        </p>
                     </div>
+                    <span class="statement__meta">Blender &middot; Modelling &middot; Animation</span>
                 </article>
-                <article class="work reveal" style="--i:1">
-                    <span class="work__tag">Game Asset</span>
-                    <div>
-                        <h3 class="work__title">Untitled 02</h3>
-                        <p class="work__text">Placeholder &mdash; a low poly asset, baked and textured for real-time use.</p>
-                    </div>
-                </article>
-                <article class="work reveal" style="--i:2">
-                    <span class="work__tag">3D Print</span>
-                    <div>
-                        <h3 class="work__title">Untitled 03</h3>
-                        <p class="work__text">Placeholder &mdash; a functional print, from CAD to the finished part.</p>
-                    </div>
-                </article>
+
             </section>
 
         </div>

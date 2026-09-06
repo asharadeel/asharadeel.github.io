@@ -84,18 +84,18 @@ function makeCard(game, position) {
     let scrim = document.createElement('span');
     scrim.className = 'gameCard__scrim';
 
-    let body = document.createElement('span');
-    body.className = 'gameCard__body';
-
+    //the year sits at the top, the title down at the bottom
     let year = document.createElement('span');
     year.className = 'gameCard__year';
     year.textContent = game.year;
+
+    let body = document.createElement('span');
+    body.className = 'gameCard__body';
 
     let title = document.createElement('span');
     title.className = 'gameCard__title';
     title.textContent = game.title;
 
-    body.appendChild(year);
     body.appendChild(title);
 
     if (game.link) {
@@ -107,6 +107,7 @@ function makeCard(game, position) {
 
     card.appendChild(background);
     card.appendChild(scrim);
+    card.appendChild(year);
     card.appendChild(body);
 
     return card;
@@ -149,24 +150,43 @@ function buildList() {
     top.appendChild(heads);
     top.appendChild(close);
 
-    //the same cards as the highlights, just all of them
-    let grid = document.createElement('div');
-    grid.className = 'gamesListGrid';
+    //the same cards as the highlights, just all of them, side by side
+    let strip = document.createElement('div');
+    strip.className = 'gamesListStrip';
 
     for (let i = 0; i < allGames.length; i++) {
-        grid.appendChild(makeCard(allGames[i], i));
+        strip.appendChild(makeCard(allGames[i], i));
     }
 
+    //a wheel only scrolls up and down, so it is turned sideways here.
+    //on a phone the strip runs downwards instead, and there is nothing
+    //to pan sideways, so it is left alone
+    strip.addEventListener('wheel', function(event) {
+        if (strip.scrollWidth <= strip.clientWidth) {
+            return;
+        }
+
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+            return;
+        }
+
+        event.preventDefault();
+        strip.scrollLeft += event.deltaY;
+    }, { passive: false });
+
     inner.appendChild(top);
-    inner.appendChild(grid);
+    inner.appendChild(strip);
     list.appendChild(inner);
     document.body.appendChild(list);
 
     viewMore.addEventListener('click', function() {
         list.showModal();
 
-        //the cards fade in each time the page is opened
-        let cards = grid.querySelectorAll('.reveal');
+        //back to the start, then the cards fade in again
+        strip.scrollLeft = 0;
+        strip.scrollTop = 0;
+
+        let cards = strip.querySelectorAll('.reveal');
         for (let i = 0; i < cards.length; i++) {
             cards[i].classList.remove('is-in');
         }
