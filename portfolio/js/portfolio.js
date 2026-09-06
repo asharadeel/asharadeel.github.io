@@ -62,6 +62,69 @@
         el.addEventListener("blur", leave);
     });
 
+    /* ----- the icon asks before it leaves the portfolio ----- */
+
+    var disc = document.querySelector(".core__disc");
+
+    if (disc) {
+        var popup = document.createElement("dialog");
+        popup.id = "returnPopup";
+
+        var popupInner = document.createElement("div");
+        popupInner.className = "returnInner";
+
+        var popupTitle = document.createElement("h2");
+        popupTitle.className = "returnTitle";
+        popupTitle.textContent = "Return to main site?";
+
+        var popupText = document.createElement("p");
+        popupText.className = "returnText";
+        popupText.textContent = "You are leaving the portfolio and going back to the main site.";
+
+        var popupButtons = document.createElement("div");
+        popupButtons.className = "returnButtons";
+
+        var popupStay = document.createElement("button");
+        popupStay.className = "returnBtn";
+        popupStay.type = "button";
+        popupStay.textContent = "Stay Here";
+
+        /* an a tag so a middle click still opens it in a new tab */
+        var popupGo = document.createElement("a");
+        popupGo.className = "returnBtn returnBtn--go";
+        popupGo.href = disc.getAttribute("href");
+        popupGo.textContent = "Return";
+
+        popupButtons.appendChild(popupStay);
+        popupButtons.appendChild(popupGo);
+        popupInner.appendChild(popupTitle);
+        popupInner.appendChild(popupText);
+        popupInner.appendChild(popupButtons);
+        popup.appendChild(popupInner);
+        document.body.appendChild(popup);
+
+        disc.addEventListener("click", function (event) {
+            /* a ctrl or middle click still opens the main site in a new tab */
+            if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey) {
+                return;
+            }
+
+            event.preventDefault();
+            popup.showModal();
+        });
+
+        popupStay.addEventListener("click", function () {
+            popup.close();
+        });
+
+        /* close when the dark area around the box is clicked */
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                popup.close();
+            }
+        });
+    }
+
     /* ----- section pages: reveal on scroll ----- */
 
     var reveals = document.querySelectorAll(".reveal");
