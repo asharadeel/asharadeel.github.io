@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/portfolio.css" type="text/css">
     <script src="js/portfolio.js" defer></script>
+    <script src="js/games.js" defer></script>
 </head>
 <body>
 
@@ -30,28 +31,22 @@
                 <button class="viewMore" type="button">View More</button>
             </div>
 
-            <section class="workGrid">
-                <article class="work reveal" style="--i:0">
-                    <span class="work__tag">Experience</span>
-                    <div>
-                        <h3 class="work__title">Untitled 01</h3>
-                        <p class="work__text">Placeholder &mdash; the game, player count and a link to the experience.</p>
+            <!-- the two game cards are made by js/games.js from the games folder -->
+            <section class="workGrid" id="gamesGrid" data-limit="2">
+
+                <article class="work statement reveal is-in">
+                    <span class="statement__ghost">2017</span>
+                    <span class="work__tag">Since 2017</span>
+                    <div class="statement__body">
+                        <p class="statement__text">
+                            I have been building on Roblox for <em>nine years</em> and shipped
+                            <em>dozens of games</em> in that time &mdash; sprawling city showcases,
+                            round based fighters, and plenty in between.
+                        </p>
                     </div>
+                    <span class="statement__meta">Roblox Studio &middot; Luau</span>
                 </article>
-                <article class="work reveal" style="--i:1">
-                    <span class="work__tag">System</span>
-                    <div>
-                        <h3 class="work__title">Untitled 02</h3>
-                        <p class="work__text">Placeholder &mdash; a reusable Luau system: datastores, combat or economy.</p>
-                    </div>
-                </article>
-                <article class="work reveal" style="--i:2">
-                    <span class="work__tag">Interface</span>
-                    <div>
-                        <h3 class="work__title">Untitled 03</h3>
-                        <p class="work__text">Placeholder &mdash; UI and UX work done inside Studio.</p>
-                    </div>
-                </article>
+
             </section>
 
         </div>

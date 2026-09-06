@@ -592,6 +592,281 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
 .page__foot a:hover { color: #fff; }
 
 /* =========================================================
+   GAME CARDS — the picture is the card, built by js/games.js
+   ========================================================= */
+
+.gameCard {
+    justify-content: flex-end;         /* the title sits at the bottom */
+    padding: clamp(18px, 2.2vw, 30px);
+    background: #060606;
+}
+
+.gameCard__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+    filter: grayscale(.35) brightness(.6);
+    transition: transform .9s var(--ease), filter .6s var(--ease);
+}
+
+.gameCard:hover .gameCard__bg {
+    transform: scale(1.08);
+    filter: grayscale(0) brightness(.78);
+}
+
+/* the picture is darkened towards the bottom so the words always read */
+.gameCard__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top,
+                rgba(0, 0, 0, .92) 0%,
+                rgba(0, 0, 0, .55) 42%,
+                rgba(0, 0, 0, .12) 100%);
+}
+
+.gameCard__body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gameCard__year {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .65);
+}
+
+.gameCard__title {
+    font-family: var(--display);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: clamp(20px, 2.6vmin, 34px);
+    line-height: 1.02;
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, .8);
+    transition: transform .5s var(--ease);
+}
+
+.gameCard:hover .gameCard__title { transform: translateX(5px); }
+
+.gameCard__go {
+    margin-top: 8px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+
+.gameCard:hover .gameCard__go,
+.gameCard:focus-visible .gameCard__go { opacity: 1; transform: none; }
+
+.gamesError {
+    grid-column: 1 / -1;
+    align-self: center;
+    text-align: center;
+    font-size: clamp(12px, 1.3vmin, 14px);
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* ---------- the opening statement, sat alongside the game cards ---------- */
+
+.statement {
+    justify-content: space-between;
+    background: linear-gradient(155deg, #141414 0%, #070707 72%);
+    border-color: rgba(255, 255, 255, .13);
+}
+
+.statement:hover {
+    border-color: rgba(255, 255, 255, .26);
+    transform: translateY(-4px);
+}
+
+/* the year sat behind it all, the same trick the hub tiles use */
+.statement__ghost {
+    position: absolute;
+    right: -.04em;
+    bottom: -.14em;
+    z-index: 0;
+    font-family: var(--display);
+    font-weight: 200;
+    font-size: clamp(84px, 13vmin, 180px);
+    line-height: .78;
+    color: rgba(255, 255, 255, .045);
+    user-select: none;
+    pointer-events: none;
+    transition: color .6s var(--ease), transform .9s var(--ease);
+}
+
+.statement:hover .statement__ghost {
+    color: rgba(255, 255, 255, .07);
+    transform: scale(1.05);
+}
+
+.statement .work__tag,
+.statement__body,
+.statement__meta { position: relative; z-index: 1; }
+
+.statement__body {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: clamp(14px, 2vh, 24px) 0;
+}
+
+.statement__text {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(15px, 2.05vmin, 25px);
+    line-height: 1.34;
+    letter-spacing: .01em;
+    color: rgba(255, 255, 255, .68);
+}
+
+/* the parts worth reading first */
+.statement__text em {
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+}
+
+.statement__meta {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(9px, .95vmin, 11px);
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* =========================================================
+   ALL GAMES — the full record, a page of its own
+   ========================================================= */
+
+#gamesList {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #000;
+    overflow: hidden;
+    animation: listIn .35s var(--ease);
+}
+
+#gamesList::backdrop { background: #000; }
+
+@keyframes listIn {
+    from { opacity: 0; transform: scale(1.015); }
+    to   { opacity: 1; transform: none; }
+}
+
+.gamesListInner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.gamesListTop {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(34px, 7vh, 70px) clamp(30px, 5vw, 96px) clamp(20px, 3vh, 32px);
+    border-bottom: 1px solid var(--line);
+}
+
+.gamesListTitle {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(30px, 6vmin, 76px);
+    line-height: .92;
+    color: #fff;
+}
+
+.gamesListCount {
+    display: block;
+    margin-top: 12px;
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.gamesListClose {
+    flex: 0 0 auto;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .9);
+    background: transparent;
+    padding: 12px 26px;
+    border: 1px solid var(--line);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color .4s var(--ease), color .4s var(--ease),
+                border-color .4s var(--ease), letter-spacing .4s var(--ease);
+}
+
+.gamesListClose:hover,
+.gamesListClose:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+    letter-spacing: .34em;
+}
+
+/* the grid is the only thing that scrolls */
+.gamesListGrid {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(230px, 22vw, 330px), 1fr));
+    gap: clamp(12px, 1.6vw, 24px);
+    padding: clamp(22px, 4vh, 44px) clamp(30px, 5vw, 96px) clamp(40px, 7vh, 80px);
+    align-content: start;
+}
+
+/* in the full record every card is a picture of the same shape */
+.gamesListGrid .gameCard {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+}
+
+.gamesListGrid::-webkit-scrollbar { width: 10px; }
+.gamesListGrid::-webkit-scrollbar-track { background: transparent; }
+.gamesListGrid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .16);
+    border-radius: 50px;
+}
+
+/* =========================================================
    RETURN POPUP — asks before leaving the portfolio
    built by js/portfolio.js
    ========================================================= */
@@ -832,6 +1107,20 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
         gap: 10px;
         text-align: center;
         padding: clamp(20px, 6vw, 30px) clamp(22px, 6vw, 40px);
+    }
+
+    /* ---------- all games ---------- */
+
+    .gamesListTop {
+        align-items: flex-start;
+        padding: clamp(28px, 8vw, 44px) clamp(22px, 6vw, 40px) clamp(16px, 4vw, 24px);
+    }
+
+    .gamesListTitle { font-size: clamp(28px, 10vw, 46px); }
+
+    .gamesListGrid {
+        grid-template-columns: 1fr;
+        padding: clamp(20px, 6vw, 32px) clamp(22px, 6vw, 40px) clamp(34px, 9vw, 54px);
     }
 
     /* ---------- return popup ---------- */
