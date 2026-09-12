@@ -1,0 +1,61 @@
+{
+    "projects": [
+        {
+            "name": "Hot Pursuit",
+            "year": "2021",
+            "made": "Blender, Premiere Pro CC",
+            "channel": "https://www.youtube.com/@hotpursuit9691",
+            "cover": "images/more/gV7Aq0fRDh8.jpg",
+            "description": "Trailers for Hot Pursuit, animated and cut by me. Every shot was modelled, staged and rendered in Blender, then edited, graded and mixed in Premiere Pro CC.",
+            "videos": [
+                {
+                    "title": "Hot Pursuit - Pre-Launch Trailer",
+                    "id": "gV7Aq0fRDh8",
+                    "published": "10 December 2021",
+                    "thumb": "images/more/gV7Aq0fRDh8.jpg"
+                },
+                {
+                    "title": "Hot Pursuit - 2021 Trailer 2",
+                    "id": "WXFQ7multfA",
+                    "published": "28 June 2021",
+                    "thumb": "images/more/WXFQ7multfA.jpg"
+                },
+                {
+                    "title": "Hot Pursuit - 2021 Trailer",
+                    "id": "YrQPH1ysHDc",
+                    "published": "19 February 2021",
+                    "thumb": "images/more/YrQPH1ysHDc.jpg"
+                }
+            ],
+            "kind": "video"
+        },
+        {
+            "kind": "site",
+            "name": "Websites",
+            "year": "Web Development",
+            "made": "HTML, CSS, JavaScript",
+            "cover": "images/more/millys-cakery.jpg",
+            "description": "Client sites built end to end - design, build and deploy. Each one is live, and the preview below loads the real site rather than a picture of it.",
+            "sites": [
+                {
+                    "title": "Milly's Cakery",
+                    "url": "https://millyscakery.neocities.org/homepage",
+                    "note": "Bakery site - products, menu, gallery and ordering",
+                    "thumb": "images/more/millys-cakery.jpg"
+                },
+                {
+                    "title": "Floral Finesse",
+                    "url": "https://floralfinesse.neocities.org/homepage",
+                    "note": "Florist site - catalogue and enquiries",
+                    "thumb": "images/more/floral-finesse.jpg"
+                },
+                {
+                    "title": "Soundscape",
+                    "url": "https://pythonomule-soundscape.onrender.com/directory_home.html",
+                    "note": "Music directory web app, hosted on Render",
+                    "thumb": "images/more/soundscape.jpg"
+                }
+            ]
+        }
+    ]
+}

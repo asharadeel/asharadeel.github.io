@@ -216,20 +216,33 @@ a { color: inherit; text-decoration: none; }
     filter: grayscale(0);
 }
 
-/* hovering lifts the overlay instead of sweeping white over it */
+/* hovering darkens the picture rather than sweeping white over it, so the
+   words never end up fighting a bright background */
 .tile--cover:hover .tile__cover::after,
-.tile--cover:focus-visible .tile__cover::after { background: rgba(0, 0, 0, .42); }
+.tile--cover:focus-visible .tile__cover::after { background: rgba(0, 0, 0, .8); }
 
 .tile--cover::before { display: none; }
 
-/* so the words stay white rather than flipping to black */
+/* the words stay white, and carry a glow so they read over any picture */
+.tile--cover .tile__title,
+.tile--cover .tile__sub,
+.tile--cover .tile__go { text-shadow: 0 2px 18px rgba(0, 0, 0, .95); }
+
 .tile--cover:hover .tile__title,
-.tile--cover:focus-visible .tile__title { color: #fff; }
+.tile--cover:focus-visible .tile__title {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, .65),
+                 0 0 34px rgba(255, 255, 255, .4),
+                 0 2px 20px rgba(0, 0, 0, 1);
+}
 
 .tile--cover:hover .tile__sub,
 .tile--cover:hover .tile__go,
 .tile--cover:focus-visible .tile__sub,
-.tile--cover:focus-visible .tile__go { color: rgba(255, 255, 255, .82); }
+.tile--cover:focus-visible .tile__go {
+    color: #ffffff;
+    text-shadow: 0 0 16px rgba(255, 255, 255, .3), 0 2px 14px rgba(0, 0, 0, 1);
+}
 
 .tile--cover .tile__ghost { color: rgba(255, 255, 255, .07); }
 .tile--cover:hover .tile__ghost { color: rgba(255, 255, 255, .11); }
@@ -253,14 +266,15 @@ a { color: inherit; text-decoration: none; }
     transform: scale(1.06);
 }
 
-/* everything flips to black under the white sweep */
-.tile:hover .tile__title,
-.tile:focus-visible .tile__title { color: #000; }
+/* everything flips to black under the white sweep - only on the tiles that
+   have no cover picture, since those keep their white text instead */
+.tile:not(.tile--cover):hover .tile__title,
+.tile:not(.tile--cover):focus-visible .tile__title { color: #000; }
 
-.tile:hover .tile__sub,
-.tile:hover .tile__go,
-.tile:focus-visible .tile__sub,
-.tile:focus-visible .tile__go { color: rgba(0, 0, 0, .62); }
+.tile:not(.tile--cover):hover .tile__sub,
+.tile:not(.tile--cover):hover .tile__go,
+.tile:not(.tile--cover):focus-visible .tile__sub,
+.tile:not(.tile--cover):focus-visible .tile__go { color: rgba(0, 0, 0, .62); }
 
 /* ---------- per-quadrant placement ---------- */
 
@@ -805,6 +819,204 @@ a.chrome--tl:hover { border-color: #fff; letter-spacing: .3em; }
     letter-spacing: .34em;
     text-transform: uppercase;
     color: var(--muted);
+}
+
+/* =========================================================
+   VIDEO PROJECTS — built by js/other.js
+   ========================================================= */
+
+#projectView {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #000;
+    overflow: hidden;
+    animation: listIn .35s var(--ease);
+}
+
+#projectView::backdrop { background: #000; }
+
+.projectBody {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: clamp(20px, 3.4vh, 40px) clamp(30px, 5vw, 96px) clamp(34px, 6vh, 70px);
+}
+
+.projectBody::-webkit-scrollbar { width: 10px; }
+.projectBody::-webkit-scrollbar-track { background: transparent; }
+.projectBody::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .16);
+    border-radius: 50px;
+}
+
+.projectText {
+    max-width: none;
+    margin-bottom: clamp(22px, 4vh, 44px);
+    font-size: clamp(12px, 1.3vmin, 15px);
+    line-height: 1.8;
+    color: #a8a8a8;
+}
+
+/* one row per video - the player on the left, what it is on the right */
+.videoList {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px, 3vh, 34px);
+}
+
+.video {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: center;
+    gap: clamp(18px, 2.5vw, 40px);
+}
+
+.video__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0a0a0a;
+    border: 1px solid var(--line-soft);
+    overflow: hidden;
+}
+
+/* the picture that stands in until the video is asked for */
+.video__thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.video__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(.3) brightness(.72);
+    transition: filter .5s var(--ease), transform .8s var(--ease);
+}
+
+.video__thumb:hover img,
+.video__thumb:focus-visible img {
+    filter: none;
+    transform: scale(1.04);
+}
+
+/* the play triangle in the middle */
+.video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: clamp(48px, 5vmin, 68px);
+    height: clamp(48px, 5vmin, 68px);
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .45);
+    transition: background-color .35s var(--ease), border-color .35s var(--ease);
+}
+
+.video__play::after {
+    content: "";
+    width: 0;
+    height: 0;
+    margin-left: 4px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 15px solid #fff;
+    transition: border-left-color .35s var(--ease);
+}
+
+.video__thumb:hover .video__play,
+.video__thumb:focus-visible .video__play {
+    background: #fff;
+    border-color: #fff;
+}
+
+.video__thumb:hover .video__play::after { border-left-color: #000; }
+
+/* a website preview gets a cross of arrows rather than a play triangle */
+.video__play--site::after {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-radius: 3px;
+    transition: border-color .35s var(--ease);
+}
+
+.video__thumb:hover .video__play--site::after { border-color: #000; }
+
+.video__player {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video__title {
+    font-family: var(--display);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: clamp(17px, 2.2vmin, 28px);
+    line-height: 1.05;
+    letter-spacing: .03em;
+    color: #fff;
+}
+
+.video__date {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.video__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: clamp(14px, 2vh, 22px);
+}
+
+.videoLink {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(10px, 1.05vmin, 12px);
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .9);
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background-color .4s var(--ease), color .4s var(--ease),
+                border-color .4s var(--ease);
+}
+
+.videoLink:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
 }
 
 /* =========================================================
@@ -1868,6 +2080,16 @@ button.gameCard {
         text-align: center;
         padding: clamp(20px, 6vw, 30px) clamp(22px, 6vw, 40px);
     }
+
+    /* ---------- video projects ---------- */
+
+    .video { grid-template-columns: 1fr; gap: 14px; }
+
+    .projectBody {
+        padding: clamp(18px, 5vw, 28px) clamp(22px, 6vw, 40px) clamp(34px, 9vw, 54px);
+    }
+
+    .videoLink { font-size: 10px; padding: 9px 16px; }
 
     /* ---------- music ---------- */
 
