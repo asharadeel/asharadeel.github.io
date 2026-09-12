@@ -39,8 +39,8 @@
 
 % Section formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
 
 \pdfgentounicode=1
 
@@ -48,7 +48,7 @@
 % Custom commands
 \newcommand{\resumeItem}[1]{
   \item\small{
-    {#1 \vspace{-2pt}}
+    {#1 \vspace{-1pt}}
   }
 }
 
@@ -57,7 +57,7 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
@@ -72,7 +72,7 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------
 \begin{document}
@@ -153,39 +153,33 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-          {\href{https://github.com/asharadeel/SoundScape}{\textbf{\underline{Automated Audio Directory and Playback Website}}}}{Jan. 2026 -- Present}
+          {\textbf{Automated Audio Directory and Playback Website}}{Jan. 2026 -- Present}
           \resumeItemListStart
             \resumeItem{Developed using HTML, Tailwind CSS, Node.js, Netlify}
             \resumeItem{Displays automatically generated music in a sorted, professional layout; built with a client.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\href{https://site-weather-app.vercel.app/}{\textbf{\underline{Construction Weather Website-Application}}}}{March 2026 -- April 2026}
+          {\textbf{Construction Weather Website-Application}}{March 2026 -- April 2026}
           \resumeItemListStart
             \resumeItem{Developed using HTML, Tailwind CSS, React.js, Node.js, Figma, OpenWeather API, Geolocation API}
             \resumeItem{Real-time weather and forecasts by geolocation, with safety guidance for outdoor construction workers.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\href{https://github.com/asharadeel/WorkGate}{\textbf{\underline{Employee Portal Web Application --- FDM}}}}{March 2026 -- May 2026}
+          {\textbf{Employee Portal Web Application --- FDM}}{March 2026 -- May 2026}
           \resumeItemListStart
             \resumeItem{Developed using HTML, Tailwind CSS, React.js, Node.js, Spring Boot, MySQL}
             \resumeItem{Portal for staff to access their information, submit requests and manage their tasks.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\href{https://github.com/asharadeel/HorseRacer23}{\textbf{\underline{Horse-Race Simulator and Data Analyser}}}}{April 2025 -- May 2025}
+          {\textbf{Horse-Race Simulator and Data Analyser}}{April 2025 -- May 2025}
           \resumeItemListStart
             \resumeItem{Developed using Java, IntelliJ IDEA, Java Swing, XChart}
             \resumeItem{Simulates horses over variable track lengths and weather, with live stats, analysis and logging.}
           \resumeItemListEnd
 
-      \resumeProjectHeading
-          {\textbf{Online Multiplayer 3D Car Racing Game}}{Feb. 2026 -- Present}
-          \resumeItemListStart
-            \resumeItem{Developed using C\#, Unity, Blender, Paint.NET, Spacedesk, Adobe CC, VSCode, DevOps}
-            \resumeItem{Multiplayer sequel with added game modes, cars and maps, and upgraded graphics.}
-          \resumeItemListEnd
 
       \resumeProjectHeading
           {\textbf{Productivity and Time-Management Application}}{Aug. 2024}
