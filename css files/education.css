@@ -22,9 +22,93 @@ h1{
     padding-top: 8em;
 }
 
+/* certifications - one card per certificate. the card is a grid: the title
+   runs across the top, then the writing and the certificate sit beside each
+   other in even halves */
+.certificationbox{
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 25px;
+    margin: 2em;
+    padding: 0.5em 1em 1.5em;
+}
+
+.certificationbox article{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0em 1.5em;
+}
+
+/* the title box carries the year and who issued it */
+.certificationbox h3{
+    grid-column: 1 / -1;
+}
+
+.certificateMeta{
+    display: block;
+    margin-top: 0.4em;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: none;
+}
+
+/* no box of its own - the card is already one */
+.certificateText{
+    padding: 0em 1.5em;
+}
+
+.certificateText ul{
+    padding-left: 1.2em;
+}
+
+.certificateText li{
+    padding: 0.35em 0em;
+}
+
+/* the certificate itself, centred with a line under it */
+.certificateImage{
+    margin: 0em;
+    text-align: center;
+}
+
+.certificateImage img{
+    width: 100%;
+    max-width: 30em;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.certificateImage figcaption{
+    padding-top: 0.9em;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.65);
+}
+
 @media screen and (max-width: 767px) {
     .education{
         display: flex;
         flex-direction: column;
+    }
+
+    .certificationbox{
+        margin: 1em;
+        padding: 0.5em 0.5em 1em;
+    }
+
+    .certificationbox article{
+        grid-template-columns: 1fr;
+        gap: 0em;
+    }
+
+    .certificateText{
+        padding: 0em 1em;
+    }
+
+    .certificateImage{
+        margin: 1em auto 0em;
+        padding: 0em 0.5em;
     }
 }

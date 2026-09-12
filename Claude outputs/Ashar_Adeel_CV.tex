@@ -1,0 +1,213 @@
+%-------------------------------------------
+% Ashar Adeel - CV
+%-------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{mathptmx}
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode}}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.85in}
+\addtolength{\textheight}{1.9in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Ashar Adeel} \\ \vspace{4pt}
+    \small \faPhone\ +447424774768 ~ $|$ ~
+    \faEnvelope\ \href{mailto:asharadeel25@gmail.com}{\underline{asharadeel25@gmail.com}} ~ $|$ ~
+    \faGlobe\ \href{https://asharadeel.github.io}{\underline{asharadeel.github.io}} ~ $|$ ~
+    \faMapMarker\ London
+    \vspace{-6pt}
+\end{center}
+
+%----------EDUCATION----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Queen Mary, University of London}{Sept. 2024 -- Aug. 2027}
+      {BSc Computer Science (Hons)}{London}
+      \resumeItemListStart
+        \resumeItem{1st Class Honours (1:1), 4.0 GPA. Relevant Modules: Data Structures, Algorithms, Databases, Computer Systems, Automata}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Townley Grammar School}{Sept. 2022 -- Aug. 2024}
+      {A-Levels in Maths, Physics, Computer Science}{Bexleyheath}
+      \resumeItemListStart
+        \resumeItem{A-Levels: Mathematics (A), Computer Science (A), Physics (B).}
+        \resumeItem{GCSEs: (8) (6-8) including Mathematics (8), English Language (8), Combined Science (7-8)}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%----------EXPERIENCE----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Technical Consultant}{Sept. 2026 -- Present}
+      {Verafind}{London}
+      \resumeItemListStart
+        \resumeItem{Develop and improve Verafind's property technology portal and internal tooling.}
+        \resumeItem{Build and test AI models and AI-driven applications, from research through to implementation.}
+        \resumeItem{Deliver data-driven solutions using APIs and external datasets for client land research.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Technology Developer Intern}{Aug. 2026}
+      {Verafind}{London}
+      \resumeItemListStart
+        \resumeItem{Built an application using APIs and Vision Language Models (VLMs) to analyse and assess data.}
+        \resumeItem{Assessed public databases and data sources for feasibility in the land-matching pipeline.}
+        \resumeItem{Conducted market and sector research to identify opportunities and provide client insight.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineering Intern}{July 2026}
+      {Novogym}{London}
+      \resumeItemListStart
+        \resumeItem{Built \textbf{NovoFlow}, a Python web app (SimPy, pandas, NumPy) modelling equipment use and member flow.}
+        \resumeItem{Collected on-site and remote data to calibrate the model and support decision-making.}
+        \resumeItem{Built Streamlit dashboards to visualise insights, working in a team of two.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Interactive Developer}{Feb. 2025 -- Feb. 2026}
+      {Freelance}{London}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained interactive web applications, hosted on Neocities and Netlify.}
+        \resumeItem{Used Node.js, React, Bootstrap, Tailwind CSS and XAMPP (Apache, phpMyAdmin).}
+        \resumeItem{Designed 2D and 3D models in Blender and Roblox Studio for client projects.}
+      \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+
+%----------PROJECTS----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\href{https://github.com/asharadeel/SoundScape}{\textbf{\underline{Automated Audio Directory and Playback Website}}}}{Jan. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Developed using HTML, Tailwind CSS, Node.js, Netlify}
+            \resumeItem{Displays automatically generated music in a sorted, professional layout; built with a client.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\href{https://site-weather-app.vercel.app/}{\textbf{\underline{Construction Weather Website-Application}}}}{March 2026 -- April 2026}
+          \resumeItemListStart
+            \resumeItem{Developed using HTML, Tailwind CSS, React.js, Node.js, Figma, OpenWeather API, Geolocation API}
+            \resumeItem{Real-time weather and forecasts by geolocation, with safety guidance for outdoor construction workers.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\href{https://github.com/asharadeel/WorkGate}{\textbf{\underline{Employee Portal Web Application --- FDM}}}}{March 2026 -- May 2026}
+          \resumeItemListStart
+            \resumeItem{Developed using HTML, Tailwind CSS, React.js, Node.js, Spring Boot, MySQL}
+            \resumeItem{Portal for staff to access their information, submit requests and manage their tasks.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\href{https://github.com/asharadeel/HorseRacer23}{\textbf{\underline{Horse-Race Simulator and Data Analyser}}}}{April 2025 -- May 2025}
+          \resumeItemListStart
+            \resumeItem{Developed using Java, IntelliJ IDEA, Java Swing, XChart}
+            \resumeItem{Simulates horses over variable track lengths and weather, with live stats, analysis and logging.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Online Multiplayer 3D Car Racing Game}}{Feb. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Developed using C\#, Unity, Blender, Paint.NET, Spacedesk, Adobe CC, VSCode, DevOps}
+            \resumeItem{Multiplayer sequel with added game modes, cars and maps, and upgraded graphics.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Productivity and Time-Management Application}}{Aug. 2024}
+          \resumeItemListStart
+            \resumeItem{Developed using C++, Unreal Engine, Adobe CC, Paint.NET}
+            \resumeItem{Tracks productivity and work habits over long periods, with a heavy focus on feel and aesthetics.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%----------SKILLS----------
+\newcommand{\certlink}{https://portal.bloombergforeducation.com/certificates/sSwoFVEGUHgawrV2i1iVZzSg}
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, Java, JavaScript (React.js, Node.js), C\#, C++, PHP, SQL (MySQL, Oracle Live), HTML/CSS, Luau, Bash, JSON} \\
+     \textbf{Frameworks \& Libraries}{: React.js, Node.js, Tailwind CSS, Bootstrap, SimPy, pandas, NumPy, Streamlit, Java Swing, XChart} \\
+     \textbf{Developer Tools}{: VSCode, IntelliJ IDEA, GitHub, Jupyter, Figma, XAMPP (Apache), Wireshark, Visual Paradigm, VirtualBox, Linux, macOS} \\
+     \textbf{Engines \& Design}{: Unity, Unreal Engine, Roblox Studio, Blender, Adobe CC (Photoshop, Premiere Pro), Paint.NET, FL Studio, Audacity} \\
+     \textbf{Certifications}{: Bloomberg Finance Fundamentals, 2026 --- \href{\certlink}{\underline{click to view}}} \\
+     \textbf{Interests}{: Music Production, Guitar, Piano, 3D Design, Game Development, Photography, Video Editing}
+    }}
+ \end{itemize}
+
+\end{document}
