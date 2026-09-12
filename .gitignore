@@ -13,3 +13,7 @@ portfolio/images/3d modelling/*/*.meta
 # committed as normal. everything else here stays local.
 portfolio/music/*/
 !portfolio/music/previews/
+
+# claude outputs
+# working files from claude code sessions, not part of the site
+Claude outputs/

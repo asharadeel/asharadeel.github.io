@@ -93,8 +93,18 @@ header p{
 /* the cv button under the about me writing */
 .cvlink{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9em;
     padding: 1em 0em 2em;
+}
+
+.cvupdated{
+    font-size: 0.75rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.65);
+    text-shadow: 0 1px 4px black;
 }
 
 /* the half black fill the abutton class gives is invisible against this
