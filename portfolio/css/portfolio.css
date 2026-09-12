@@ -1188,7 +1188,7 @@ button.gameCard {
     background: #080808;
     overflow: hidden;
     cursor: zoom-in;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2 / 1;
 }
 
 .shot img {
@@ -1196,6 +1196,7 @@ button.gameCard {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     filter: grayscale(.25) brightness(.9);
     transform: scale(1.01);
     transition: transform .9s var(--ease), filter .6s var(--ease);
@@ -1406,10 +1407,8 @@ button.gameCard {
     align-content: start;
 }
 
-/* the fewer there are across, the taller each one gets */
-.folderViewGrid .shot { aspect-ratio: 16 / 9; }
-.folderViewGrid[style*="--cols:1"] .shot { aspect-ratio: 21 / 9; }
-.folderViewGrid[style*="--cols:2"] .shot { aspect-ratio: 16 / 10; }
+/* every box is the shape of the pictures themselves, so none is cropped */
+.folderViewGrid .shot { aspect-ratio: 2 / 1; }
 
 /* a set that fits on one row sits in the middle of the screen and gets a
    taller crop, rather than being stretched so far that the picture is
@@ -1419,8 +1418,7 @@ button.gameCard {
     padding-bottom: 0;
 }
 
-.folderViewGrid--single .shot { aspect-ratio: 4 / 3; }
-.folderViewGrid--single[style*="--cols:1"] .shot { aspect-ratio: 21 / 9; }
+.folderViewGrid--single .shot { aspect-ratio: 2 / 1; }
 
 .folderViewGrid::-webkit-scrollbar { width: 10px; }
 .folderViewGrid::-webkit-scrollbar-track { background: transparent; }
@@ -1439,7 +1437,7 @@ button.gameCard {
     height: 100vh;
     max-height: none;
     margin: 0;
-    padding: clamp(40px, 7vh, 80px) clamp(30px, 5vw, 90px);
+    padding: clamp(20px, 4vh, 54px) clamp(20px, 3vw, 60px);
     border: none;
     background: rgba(0, 0, 0, .96);
     animation: listIn .3s var(--ease);
@@ -1945,11 +1943,14 @@ button.gameCard {
     }
 
     .folderViewGrid .shot,
-    .folderViewGrid--single .shot { aspect-ratio: 16 / 10; }
+    .folderViewGrid--single .shot { aspect-ratio: 2 / 1; }
 
     .folderViewGrid--single { align-content: start; }
 
-    #shotViewer { padding: clamp(56px, 14vw, 80px) clamp(16px, 5vw, 30px); }
+    #shotViewer { padding: clamp(56px, 15vw, 80px) 0; }
+
+    /* the whole width of the screen goes to the picture */
+    #shotViewerImage { width: 100%; height: auto; }
 
     /* ---------- all games ---------- */
 

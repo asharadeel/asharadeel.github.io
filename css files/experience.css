@@ -58,7 +58,7 @@ h3{
 /*EXPLICIT BOXES*/
 
 #experienceverafind{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(images/verafindbgrnd.gif);
+    background-image: linear-gradient(rgba(0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0,0,0)), url(images/verafindbgrnd.gif);
     background-size: 20%;
     background-position: center;
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);

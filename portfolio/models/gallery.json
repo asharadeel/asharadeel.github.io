@@ -22,28 +22,23 @@
         {
             "images": [
                 {
-                    "image": "images/3d modelling/web/GENERAL#9.jpg",
-                    "title": "Study 09"
+                    "image": "images/3d modelling/web/GENERAL#9.jpg"
                 },
                 {
-                    "image": "images/3d modelling/web/GENERAL#8.2.jpg",
-                    "title": "Study 08.2"
+                    "image": "images/3d modelling/web/GENERAL#8.2.jpg"
                 },
                 {
-                    "image": "images/3d modelling/web/GENERAL#8.5.jpg",
-                    "title": "Study 08.5"
+                    "image": "images/3d modelling/web/GENERAL#8.5.jpg"
                 }
             ]
         },
         {
             "images": [
                 {
-                    "image": "images/3d modelling/web/GENERAL #10.1.jpg",
-                    "title": "Study 10.1"
+                    "image": "images/3d modelling/web/GENERAL #10.1.jpg"
                 },
                 {
-                    "image": "images/3d modelling/web/GENERAL#9.2.jpg",
-                    "title": "Study 09.2"
+                    "image": "images/3d modelling/web/GENERAL#9.2.jpg"
                 }
             ]
         }
