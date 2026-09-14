@@ -155,13 +155,25 @@ header p{
 .redirects{
     background: linear-gradient(rgba(0, 0, 0, 0.767), rgba(61, 61, 61, 0.753),  rgba(0, 0, 0, 0.767)), url(images/white-paper.gif);
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     flex: 1;
     gap: 0em;
     padding: 0;
 
 
+    .redirectbox, .redirectcell, .redirectcell > div{
+        display: flex;
+        flex: 1;
+    }
+
     h2{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(1.1rem, 2.1vw, 2.4rem) !important;
+        white-space: nowrap;
+        padding: 1.4em 0.5em;
         background-color: rgb(0, 0, 0);
         border: 0px;
         margin: 0;
@@ -190,6 +202,11 @@ header p{
         background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/skills.gif);
         background-position: 50%;
         background-size:100%;
+    }
+    .creativetitle{
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/creative.gif);
+        background-position: 50%;
+        background-size: cover;
     }
     .blogtitle{
         background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/typingblog.gif);
@@ -267,6 +284,12 @@ header p{
     .redirects{
         display: flex;
         flex-direction: column;
+    }
+
+    /* stacked full width, so the labels have room to be much bigger */
+    .redirects h2{
+        font-size: clamp(1.7rem, 7.5vw, 2.8rem) !important;
+        padding: 1em 0.5em;
     }
 
 
