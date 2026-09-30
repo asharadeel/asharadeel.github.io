@@ -1,9 +1,7 @@
 # Ashar's Portfolio
-Last Updated 30 May 2025
+Last Updated September 2026
 
-Refer to: https://github.com/asharadeel/Ashars-Portfolio
-Full information for this project is available above.
+View on [ashars.co.uk](https://ashars.co.uk/homepage.html)
+Additionally, here is the [permanent link](https://asharadeel.github.io/) 
 
-Made for ECS414 Web Development - Year 1 Semester 2.
-
-Static version for ease of accessibility. 
+Thank you!
